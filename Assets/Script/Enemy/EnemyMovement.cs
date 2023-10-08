@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (PlayerMovement.Singleton == null) return;
-        _agent.destination = PlayerMovement.Singleton.transform.position;
+        //if (PlayerMovement.Singleton == null) return;
+        //_agent.destination = PlayerMovement.Singleton.transform.position;
     }
 }
