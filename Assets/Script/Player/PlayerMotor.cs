@@ -17,6 +17,9 @@ public class PlayerMotor : MonoBehaviour
     bool _lerpCrouch;
     private float _previousXPosition;
     private float _previousZPosition;
+    public static PlayerMotor Singleton { get; private set; }
+
+    private void Awake() => Singleton = this;
     private void Start()
     {
         _previousXPosition = transform.position.x;
