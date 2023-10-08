@@ -2,31 +2,16 @@
 using System.Collections;
 using UnityEngine;
 
-public class Target : MonoBehaviour
+public class Target : MonoBehaviour, IDamageable
 {
-    public float health = 50f;
-   // private GameManager _gameManager;
-    private void Start()
-    {
-       // _gameManager = FindObjectOfType<GameManager>();
+    [SerializeField]private float _maxHealth = 50;
+    [SerializeField]private float _health;
 
+    private void Start()=> _health = _maxHealth;
 
-    }
     public void TakeDamage(float damage)
     {
-        //_gameManager.AddMoney(10);
-        //FindObjectOfType<GameManager>().HitEnemy();
         health -= damage;
-        if (health < 0)
-        {
-            //GetComponentInParent<EnemyDiE>().Die();
-            Debug.Log("Die");
-
-
-
-        }
+        if (health < 0) Debug.Log("Die"); 
     }
-
-
-
 }
