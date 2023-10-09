@@ -8,7 +8,7 @@ public class InputManagers : MonoBehaviour
 
     private PlayerMotor _motor;
     private PlayerLook _look;
-    private WeaponSystem _weaponSystem;
+    private Weapon _weaponSystem;
     
     private void Awake()
     {
@@ -17,7 +17,7 @@ public class InputManagers : MonoBehaviour
 
         _motor = GetComponent<PlayerMotor>();
         _look = GetComponent<PlayerLook>();
-        _weaponSystem = FindObjectOfType<WeaponSystem>();
+        _weaponSystem = FindObjectOfType<Weapon>();
 
         OnFoot.Jump.performed += ctx => _motor.Jump();
 

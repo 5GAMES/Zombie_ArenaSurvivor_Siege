@@ -4897,7 +4897,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7ee290c88843d2c49be639ef4dea8a73,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7ee290c88843d2c49be639ef4dea8a73,
         type: 3}
@@ -4965,15 +4965,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ee290c88843d2c49be639ef4dea8a73,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9196902348932587532}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ee290c88843d2c49be639ef4dea8a73,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8739439679363583238}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ee290c88843d2c49be639ef4dea8a73,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8386696905498921426}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ee290c88843d2c49be639ef4dea8a73,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5142673522170729076}
   m_SourcePrefab: {fileID: 100100000, guid: 7ee290c88843d2c49be639ef4dea8a73, type: 3}
 --- !u!1 &3540175318535070989 stripped
 GameObject:
@@ -4981,18 +4981,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4458655319721924700}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9196902348932587532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3540175318535070989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373930033829bef4c9630516a01d0716, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8739439679363583238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5012,7 +5000,6 @@ MonoBehaviour:
   _magazine: 30
   _audioClips: 0
   _textmagazin: {fileID: 0}
-  _fpsCam: {fileID: 0}
   _muzzleFlash: {fileID: 2072158466325440074}
   _impactEffect: {fileID: 2876614930282644308}
   _anim: {fileID: 0}
@@ -5040,6 +5027,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5142673522170729076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3540175318535070989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8174f482f4e8ac9428e2a5718c0676b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4209434218806329271 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7ee290c88843d2c49be639ef4dea8a73,

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -256,7 +256,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1344555963}
   m_Father: {fileID: 2093858775}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -423,7 +424,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -100, y: 17.664398}
+  m_AnchoredPosition: {x: -100, y: 16}
   m_SizeDelta: {x: 200, y: 35.3288}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &362030061
@@ -1134,8 +1135,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cam: {fileID: 64595686}
   xRotation: 0
-  xSensitivity: 20
-  ySensitivity: 20
+  xSensitivity: 10
+  ySensitivity: 10
 --- !u!114 &2093858769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1276,7 +1277,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 64595687}
-  - {fileID: 1344555963}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1286,7 +1286,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2093858775}
+    m_TransformParent: {fileID: 64595687}
     m_Modifications:
     - target: {fileID: 3540175318535070989, guid: 8713932927e34e34d837cea9bf01c97d,
         type: 3}
@@ -1296,7 +1296,7 @@ PrefabInstance:
     - target: {fileID: 4209434218806329271, guid: 8713932927e34e34d837cea9bf01c97d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4209434218806329271, guid: 8713932927e34e34d837cea9bf01c97d,
         type: 3}
@@ -1306,7 +1306,7 @@ PrefabInstance:
     - target: {fileID: 4209434218806329271, guid: 8713932927e34e34d837cea9bf01c97d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4209434218806329271, guid: 8713932927e34e34d837cea9bf01c97d,
         type: 3}
@@ -1321,17 +1321,17 @@ PrefabInstance:
     - target: {fileID: 4209434218806329271, guid: 8713932927e34e34d837cea9bf01c97d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4209434218806329271, guid: 8713932927e34e34d837cea9bf01c97d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4209434218806329271, guid: 8713932927e34e34d837cea9bf01c97d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4209434218806329271, guid: 8713932927e34e34d837cea9bf01c97d,
         type: 3}
@@ -1348,6 +1348,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5142673522170729076, guid: 8713932927e34e34d837cea9bf01c97d,
+        type: 3}
+      propertyPath: _textmagazin
+      value: 
+      objectReference: {fileID: 333467079}
     - target: {fileID: 8739439679363583238, guid: 8713932927e34e34d837cea9bf01c97d,
         type: 3}
       propertyPath: _anim
@@ -1360,10 +1365,16 @@ PrefabInstance:
       objectReference: {fileID: 64595686}
     - target: {fileID: 8739439679363583238, guid: 8713932927e34e34d837cea9bf01c97d,
         type: 3}
+      propertyPath: _audioClips
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739439679363583238, guid: 8713932927e34e34d837cea9bf01c97d,
+        type: 3}
       propertyPath: _textmagazin
       value: 
       objectReference: {fileID: 333467079}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9196902348932587532, guid: 8713932927e34e34d837cea9bf01c97d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
