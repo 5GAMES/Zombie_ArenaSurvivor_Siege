@@ -57,7 +57,7 @@ public class PlayerLook : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -25f, 25f);
         _cam.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0);
 
-        weaponController.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0);
+        //weaponController.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0);
 
         transform.Rotate(Vector3.up * (mouseX * Time.deltaTime) * xSensitivity);
 
