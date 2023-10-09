@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Target : MonoBehaviour, IDamageable
+public class Target : MonoBehaviour //IDamageable
 {
     [SerializeField]private float _maxHealth = 50;
     [SerializeField]private float _health;
@@ -11,7 +11,7 @@ public class Target : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
-        if (health < 0) Debug.Log("Die"); 
+       //health -= damage;
+        //if (health < 0) Debug.Log("Die"); 
     }
 }
