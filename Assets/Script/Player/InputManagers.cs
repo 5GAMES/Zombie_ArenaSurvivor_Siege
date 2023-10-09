@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class InputManagers : MonoBehaviour
@@ -24,8 +23,8 @@ public class InputManagers : MonoBehaviour
 
         OnFoot.Crouch.performed += ctx => _motor.Crouch();
         
-        //_OnFoot.Sprint.started += ctx => _motor.StartSprint(); // Обработчик начала зажатия клавиши Shift
-        //_OnFoot.Sprint.canceled += ctx => _motor.StopSprint(); // Обработчик отпускания клавиши Shift
+        //_OnFoot.Sprint.started += ctx => _motor.StartSprint(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ Shift
+        //_OnFoot.Sprint.canceled += ctx => _motor.StopSprint(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ Shift
 
 
         //_OnFoot.Shoot.performed += ctx => _weaponSystem.Shoot();
