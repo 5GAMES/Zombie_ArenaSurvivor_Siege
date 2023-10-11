@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: New Shop Item 1
   m_EditorClassIdentifier: 
   _name: Not pistol
-  _image: {fileID: 0}
+  _image: {fileID: 21300002, guid: 71a7f8669de848e45ba57bda95f3a58e, type: 3}
   _cost: 20
   _isBuyed: 0
