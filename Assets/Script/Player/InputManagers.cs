@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class InputManagers : MonoBehaviour
@@ -8,7 +7,6 @@ public class InputManagers : MonoBehaviour
 
     private PlayerMotor _motor;
     private PlayerLook _look;
-    private Weapon _weaponSystem;
     
     private void Awake()
     {
@@ -17,7 +15,6 @@ public class InputManagers : MonoBehaviour
 
         _motor = GetComponent<PlayerMotor>();
         _look = GetComponent<PlayerLook>();
-        _weaponSystem = FindObjectOfType<Weapon>();
 
         OnFoot.Jump.performed += ctx => _motor.Jump();
 
@@ -26,24 +23,23 @@ public class InputManagers : MonoBehaviour
         //_OnFoot.Sprint.started += ctx => _motor.StartSprint(); // ���������� ������ ������� ������� Shift
         //_OnFoot.Sprint.canceled += ctx => _motor.StopSprint(); // ���������� ���������� ������� Shift
 
-
-        //_OnFoot.Shoot.performed += ctx => _weaponSystem.Shoot();
-        OnFoot.Recharge.performed += ctx => _weaponSystem.Recharge();
     }
     
     private void FixedUpdate()
     {
-       
         _motor.ProcessMove(OnFoot.Movement.ReadValue<Vector2>());
     }
+
     private void LateUpdate()
     {
         _look.ProcessLook(OnFoot.Look.ReadValue<Vector2>());
     }
+
     private void OnEnable()
     {
          OnFoot.Enable();
     }
+
     private void OnDisable()
     {
         OnFoot.Disable();

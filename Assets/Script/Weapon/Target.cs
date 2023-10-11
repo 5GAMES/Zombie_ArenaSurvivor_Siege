@@ -1,17 +1,30 @@
-
-using System.Collections;
+using System;
 using UnityEngine;
 
-public class Target : MonoBehaviour //IDamageable
+public class Target : MonoBehaviour, IDamageable
 {
-    [SerializeField]private float _maxHealth = 50;
-    [SerializeField]private float _health;
+    public Action OnDie;
+    public float Health => _health;
+    public float MaxHealth => _maxHealth;
 
-    private void Start()=> _health = _maxHealth;
+    [SerializeField]private float _maxHealth = 50;
+    private float _health;
+
+    private void Start() => _health = _maxHealth;
 
     public void TakeDamage(float damage)
     {
-       //health -= damage;
-        //if (health < 0) Debug.Log("Die"); 
+        _health -= damage;
+        if(_health < 0)
+        {
+            _health = 0;
+            OnDie?.Invoke();
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void TakeHeal(float value)
+    {
+        if(_health + value <= _maxHealth)_health += value;
     }
 }
