@@ -6,20 +6,22 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public Action<int> OnMagazineValueChnaged;
+    [Header("Stats")]
     [SerializeField] private float _damage = 10f;
     [SerializeField] private float _range = 100f;
     [SerializeField] private float _impactForce = 30f;
     [SerializeField] private float _fireRate = 15f;
     [SerializeField] int _magazine = 30;
     [SerializeField] float _audioClips;
-    private int _capacitmagazina;
+    [Header("Links")]
     [SerializeField] ParticleSystem _muzzleFlash;
     [SerializeField] GameObject _impactEffect;
-    public Animator _anim;
-    public bool _IsShoot;
     [SerializeField] private bool _IsShootActive;
-    private bool _singleFireMode = true;
     [SerializeField] private WeaponParametersSO weaponParameters;
+    private int _capacitmagazina;
+    public Animator _anim;
+    public bool _IsShoot;   
+    private bool _singleFireMode = true;  
     private float nextTimeToFire = 0f;
     private bool _IsRecharge;
 
@@ -138,6 +140,7 @@ public class Weapon : MonoBehaviour
     }
     public void Shoot()
     {
+        if (_IsRecharge) return;
         Invoke("AudioShoot", 0.2f);
         _anim.SetBool("Fire", true);
         _anim.SetBool("NoAmmo", false);
@@ -169,7 +172,7 @@ public class Weapon : MonoBehaviour
         _magazine = _capacitmagazina;
 
         Invoke("OnRecharge", 1.8f);
-       
+        OnMagazineValueChnaged?.Invoke(_magazine);
     }
 
     private void OnRecharge()
@@ -177,5 +180,4 @@ public class Weapon : MonoBehaviour
         _IsRecharge = false;
         _anim.SetBool("Recharge", false);
     }
-
 }
