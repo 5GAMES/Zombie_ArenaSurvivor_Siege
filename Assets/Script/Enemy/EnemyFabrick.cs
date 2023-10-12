@@ -1,11 +1,15 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
 public class EnemyFabrick : MonoBehaviour
 {
     public Action OnLevelEnd;
+    
+    [SerializeField] private List<EnemyMovement> _first, _second, _thrid, _four, _five;
+    [SerializeField] private List<GameObject> _spawnPoints;
     [Header("Values : ")]
     [SerializeField, Range(1, 7)] private int _enemyPerSpawn;
     [SerializeField] private int _additionalEnemy;
