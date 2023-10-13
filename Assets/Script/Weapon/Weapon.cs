@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] GameObject _hit;
     public Action<int> OnMagazineValueChnaged;
     [Header("Stats")]
     [SerializeField] private float _damage = 10f;
@@ -148,7 +149,7 @@ public class Weapon : MonoBehaviour
         OnMagazineValueChnaged?.Invoke(_magazine);
         _muzzleFlash.Play();
         RaycastHit hit;
-        if (Physics.Raycast(this.transform.position, this.transform.forward,out hit, _range))
+        if (Physics.Raycast(_hit.transform.position, _hit.transform.forward,out hit, _range))
         {
             IDamageable target = hit.transform.GetComponent<IDamageable>();
             if(target != null)

@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyFabrick : MonoBehaviour
@@ -14,10 +14,7 @@ public class EnemyFabrick : MonoBehaviour
     [SerializeField, Range(1, 7)] private int _enemyPerSpawn;
     [SerializeField] private int _additionalEnemy;
     [SerializeField, Range(1, 50)] private int _timeToNextWave;
-    [Header("Links : ")]
-    [SerializeField] private GameObject _spawnPoint;
-    [SerializeField] private EnemyMovement _enemy;
-    private int _enemysDieCount = 0;
+    private int _enemysDieCount = 0, _wave = 0, _tier = 0;
 
     private void Start() => StartLevel();
 
@@ -25,7 +22,9 @@ public class EnemyFabrick : MonoBehaviour
     {
         for(int i = 0; i < _enemyPerSpawn; i++)
         {
-            var enemy = Instantiate(_enemy.gameObject, _spawnPoint.transform.position, Quaternion.identity);
+            var num = UnityEngine.Random.Range(0, _spawnPoints.Count - 1);
+            var point = _spawnPoints[num];
+            var enemy = Instantiate(ChoiseEnemy().gameObject, point.transform.position, Quaternion.identity);
             enemy.GetComponent<Target>().OnDie += () => StartCoroutine(nameof(CheckEnemyCount));
         } 
     }
@@ -33,14 +32,40 @@ public class EnemyFabrick : MonoBehaviour
     private IEnumerator CheckEnemyCount()
     {
         _enemysDieCount++;
-        if(_enemysDieCount == _enemyPerSpawn)
+        if (_enemysDieCount == _enemyPerSpawn)
         {
+            _wave++;
+            int time = _timeToNextWave;
+            if (_wave % 5 == 0)
+            {
+                _tier++;
+                _timeToNextWave += 30;
+            }
             OnLevelEnd?.Invoke();
             _enemyPerSpawn += _additionalEnemy;
             _enemysDieCount = 0;
             yield return new WaitForSeconds(_timeToNextWave);
+            _timeToNextWave = time;
             StartLevel();
         }
     }
 
+    private EnemyMovement ChoiseEnemy()
+    {
+        switch (_tier)
+        {
+            case 0:
+                return _first[UnityEngine.Random.Range(0, _first.Count)];
+            case 1:
+                return _second[UnityEngine.Random.Range(0, _second.Count)];
+            case 2:
+                return _thrid[UnityEngine.Random.Range(0, _thrid.Count)];
+            case 3:
+                return _four[UnityEngine.Random.Range(0, _four.Count)];
+            case 4:
+                return _five[UnityEngine.Random.Range(0, _five.Count)];
+            default:
+                return null;
+        } 
+    }
 }
