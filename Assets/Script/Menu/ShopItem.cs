@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName ="ShopItem")]
+[CreateAssetMenu(menuName ="Items/Asset")]
 public class ShopItem : ScriptableObject, IShopItem
 {
     public bool IsBuyed => _isBuyed;
