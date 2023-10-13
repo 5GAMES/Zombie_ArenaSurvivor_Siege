@@ -38,8 +38,8 @@ public class Mate : MonoBehaviour
             if (_target != null)
             {
                 Vector3 direction = (_target.transform.position - transform.position).normalized;
-                direction.y = 0;
-                transform.rotation = Quaternion.LookRotation(direction);
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5F);
                 _weapon.Shoot();
                 OnTargetFounded?.Invoke();
                 break;
