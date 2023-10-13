@@ -25,6 +25,7 @@ public class Weapon : MonoBehaviour
     private bool _singleFireMode = true;  
     private float nextTimeToFire = 0f;
     private bool _IsRecharge;
+    public GameObject BulletInstancer { get { return _hit; } }
 
     public void Die() => Destroy(gameObject);
     public void DisableShooting() => _IsShootActive = false;
