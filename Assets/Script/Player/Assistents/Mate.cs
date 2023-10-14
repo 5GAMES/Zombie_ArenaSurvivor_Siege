@@ -14,13 +14,14 @@ public class Mate : MonoBehaviour
     { if (value == 0) _weapon.Recharge();
         print("rech");
     }
-
+  
     private void OnDestroy() => _weapon.OnMagazineValueChnaged -= CheckAmmo;
     private void Start()
     {
         _weapon = GetComponentInChildren<Weapon>();
         _weapon.OnMagazineValueChnaged += CheckAmmo;
         _agent = GetComponent<NavMeshAgent>();
+        _agent.updateRotation = false;
     }
 
     private void Update()
@@ -35,11 +36,15 @@ public class Mate : MonoBehaviour
         foreach (Collider collider in coliders)
         {
             _target = collider.GetComponent<EnemyMovement>();
-            if (_target != null)
+            if  (_target != null && _target != this)
             {
-                Vector3 direction = (_target.transform.position - transform.position).normalized;
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5F);
+                
+                Vector3 directionToEnemy = _target.transform.position - transform.position;
+                float targetAngle = Mathf.Atan2(directionToEnemy.x, directionToEnemy.z) * Mathf.Rad2Deg + 45f;
+                Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
+                Debug.DrawLine(transform.position, _target.transform.position, Color.red);
+               
                 _weapon.Shoot();
                 OnTargetFounded?.Invoke();
                 break;
