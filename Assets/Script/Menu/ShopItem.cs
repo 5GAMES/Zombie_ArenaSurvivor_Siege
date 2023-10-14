@@ -11,8 +11,8 @@ public class ShopItem : ScriptableObject, IShopItem
     [SerializeField] private string _name;
     [SerializeField] private Sprite _image;
     [SerializeField] private int _cost;
-    [SerializeField]private bool _isBuyed = false;
-    public void OnBuy()
+    [SerializeField] private bool _isBuyed = false;
+    public virtual void OnBuy()
     {
         _isBuyed = true;
     }

@@ -12,5 +12,6 @@ public class MateAnimator : MonoBehaviour
         _link.OnTargetFounded += () => _anim.SetBool("Attack", true);
         _link.OnTargetLoss += () => _anim.SetBool("Attack", false);
         _link.OnStay += () => _anim.SetBool("Run", false);
+        
     }
 }

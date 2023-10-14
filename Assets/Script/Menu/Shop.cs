@@ -9,25 +9,26 @@ public class Shop : MonoBehaviour
     [SerializeField] private Image _image;
     [SerializeField] private Text _name;
     [SerializeField] private Button _buyButton;
+    [SerializeField] private Transform _container;
+    [SerializeField] private ShopCell _cell;
     [SerializeField] private List<ShopItem> _items;
-    private int _index = 0;
 
     private void OnEnable()
     {
-        _index = 0;
-        Render(_items[_index]);
+        Render();
     }
 
-    private void Render(IShopItem item)
+    private void Render()
     {
-        _image.sprite = item.Image;
-        _name.text = item.Name;
-        if (item.IsBuyed) SetBuyedItem();
-        else
+        foreach(Transform child in _container) Destroy(child.gameObject);
+        
+        foreach(var item in  _items)
         {
-            _buyButton.interactable = true;
-            _buyButton.GetComponentInChildren<Text>().text = "Купить";
+            var cell = Instantiate(_cell, _container);
+            cell.Render(item);
+            cell.OnBuy += SetBuyedItem;
         }
+
     }
 
     private void SetBuyedItem()
@@ -38,34 +39,16 @@ public class Shop : MonoBehaviour
 
     public void Forward()
     {
-        if (_index < _items.Count - 1) _index++;
-        else _index = 0;
-        Render(_items[_index]);
+
     }
 
     public void Back()
     {
-        if(_index > 0)_index--;
-        else _index = _items.Count - 1;
-        Render(_items[_index]);
+
     }
 
     public async void Buy()
     {
-        var wallet = PlayerMotor.Singleton.GetComponent<Wallet>();
-        if (wallet.Money < _items[_index].Cost)
-        { 
-            var buttontext = _buyButton.GetComponentInChildren<Text>();
-            var mainText = buttontext.text;
-            buttontext.text = "Не достаточно средств";
-            await Task.Delay(2000);
-            buttontext.text = mainText;
-        }
-        else
-        {
-            wallet.SpendMoney(_items[_index].Cost);
-            _items[_index].OnBuy();
-            SetBuyedItem();
-        }
+
     }
 }

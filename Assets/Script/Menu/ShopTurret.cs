@@ -1,13 +1,12 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopTurret : MonoBehaviour
+public class ShopTurret : ShopItem
 {
-    [SerializeField] private List<GameObject> _spawnPoints;
+    [SerializeField] private Turret _turret;
 
-    public void SetTurret(Turret tur)
+    public override void OnBuy()
     {
-        var point = _spawnPoints[Random.Range(0, _spawnPoints.Count - 1)];
-        Instantiate(tur.gameObject, point.transform.position, Quaternion.identity);
+        base.OnBuy();
+        PlayerMotor.Singleton.GetComponent<TurretHandler>().SetTurret(_turret);
     }
 }

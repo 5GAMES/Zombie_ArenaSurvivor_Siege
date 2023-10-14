@@ -6,4 +6,5 @@ public interface IShopItem
     string Name { get; } 
     bool IsBuyed { get; }
     int Cost { get; }
+    public void OnBuy();
 }

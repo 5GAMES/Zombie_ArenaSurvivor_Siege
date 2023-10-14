@@ -11,9 +11,7 @@ public class Mate : MonoBehaviour
     private NavMeshAgent _agent;
 
     private void CheckAmmo(int value)
-    { if (value == 0) _weapon.Recharge();
-        print("rech");
-    }
+    { if (value == 0) _weapon.Recharge(); }
   
     private void OnDestroy() => _weapon.OnMagazineValueChnaged -= CheckAmmo;
     private void Start()
@@ -36,20 +34,24 @@ public class Mate : MonoBehaviour
         foreach (Collider collider in coliders)
         {
             _target = collider.GetComponent<EnemyMovement>();
-            if  (_target != null && _target != this)
+            if (_target != null && _target != this)
             {
-                
+                _agent.updateRotation = false;
                 Vector3 directionToEnemy = _target.transform.position - transform.position;
                 float targetAngle = Mathf.Atan2(directionToEnemy.x, directionToEnemy.z) * Mathf.Rad2Deg + 45f;
                 Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
                 Debug.DrawLine(transform.position, _target.transform.position, Color.red);
-               
+
                 _weapon.Shoot();
                 OnTargetFounded?.Invoke();
                 break;
             }
-            else OnTargetLoss?.Invoke();
+            else
+            {
+                _agent.updateRotation = true;
+                OnTargetLoss?.Invoke();
+            }
         }
     }
 
