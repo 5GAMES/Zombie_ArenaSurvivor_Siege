@@ -949,6 +949,7 @@ GameObject:
   - component: {fileID: 5636752137327457708}
   - component: {fileID: 615464507136393579}
   - component: {fileID: 5505000767505475299}
+  - component: {fileID: 4299973555613904984}
   m_Layer: 0
   m_Name: Zombie_Bellboy_Male_01 (7)
   m_TagString: Zombie1
@@ -1138,6 +1139,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 50
+  _gold: 0
+--- !u!114 &4299973555613904984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590442370703832296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6bbdc021a207fa479277810f4fac8ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &627211887966508890
 GameObject:
   m_ObjectHideFlags: 0

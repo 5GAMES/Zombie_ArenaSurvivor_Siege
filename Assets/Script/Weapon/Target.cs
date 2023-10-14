@@ -8,6 +8,7 @@ public class Target : MonoBehaviour, IDamageable
     public float MaxHealth => _maxHealth;
 
     [SerializeField]private float _maxHealth = 50;
+    [SerializeField, Range(5,25)] private int _gold = 5;
     private float _health;
 
     private void Start() => _health = _maxHealth;
@@ -19,7 +20,8 @@ public class Target : MonoBehaviour, IDamageable
         {
             _health = 0;
             OnDie?.Invoke();
-            Destroy(this.gameObject);
+            if(PlayerMotor.Singleton != null)PlayerMotor.Singleton.GetComponent<Wallet>().AddMoney(_gold);
+            Destroy(this.gameObject, 1.5f);
         }
     }
 

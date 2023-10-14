@@ -7,6 +7,8 @@ public class Wallet : MonoBehaviour
     [SerializeField] private int _money;
     public int Money { get { return _money; } }
 
+    private void Start() => OnValueChanged?.Invoke(_money);
+
     public void AddMoney(int value)
     {
         _money += value;
