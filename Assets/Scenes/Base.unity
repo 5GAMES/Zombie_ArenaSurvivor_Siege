@@ -25152,6 +25152,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 106980196}
+  - {fileID: 766245655}
   m_Father: {fileID: 64595687}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -28765,6 +28766,84 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 214127429}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &760975987
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 675462727}
+    m_Modifications:
+    - target: {fileID: 6182549837193337141, guid: cd9d9d68b90344b44b96c4369ad1530e,
+        type: 3}
+      propertyPath: m_Name
+      value: AK-47
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.18399999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489686984377146253, guid: cd9d9d68b90344b44b96c4369ad1530e,
+        type: 3}
+      propertyPath: _hit
+      value: 
+      objectReference: {fileID: 106980195}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cd9d9d68b90344b44b96c4369ad1530e, type: 3}
 --- !u!1001 &762596800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29051,6 +29130,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4300953303566678, guid: 721bcbac4346fe646b322772bf2d5ece,
     type: 3}
   m_PrefabInstance: {fileID: 1617837030}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &766245655 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
+    type: 3}
+  m_PrefabInstance: {fileID: 760975987}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &769055131
 PrefabInstance:
@@ -80403,7 +80488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.80100006, y: 0.8916667}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 44.645294, y: 5.5}
+  m_AnchoredPosition: {x: 44.75, y: 5.5}
   m_SizeDelta: {x: 342.213, y: 30.867}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2066145086
