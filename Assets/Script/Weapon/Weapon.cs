@@ -34,6 +34,7 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
+        
         _damage = weaponParameters.damage;
         _range = weaponParameters.range;
         _impactForce = weaponParameters.impactForce;
@@ -62,7 +63,10 @@ public class Weapon : MonoBehaviour
             Recharge();
         }
     }
-
+    public void SearchPoint()
+    {
+        _hit = GameObject.Find("Point");
+    }
     public void HardShoot()
     {
         if (_singleFireMode) 

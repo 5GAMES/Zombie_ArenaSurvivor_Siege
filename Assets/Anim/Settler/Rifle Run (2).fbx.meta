@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b2844db724c2a554b985d54a6f42a860
+guid: 34a8eb822c7522146a4fb08184944327
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -37,7 +37,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Settler_RunBack1
+      name: Take 001
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 1
@@ -66,11 +66,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0.9
     - serializedVersion: 16
-      name: Settler_RunBack2 (1)
+      name: Settler_3RUN
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 16
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

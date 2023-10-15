@@ -22,7 +22,7 @@ public class Target : MonoBehaviour, IDamageable
             OnDie?.Invoke();
             if(PlayerMotor.Singleton != null)PlayerMotor.Singleton.GetComponent<Wallet>().AddMoney(_gold);
             ZombieCounter.UpdateStat();
-            Destroy(this.gameObject, 1.5f);
+            Destroy(this.gameObject, 3f);
         }
     }
 

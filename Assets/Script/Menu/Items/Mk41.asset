@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f38eb8b1c7ae3434caaf259b91fcad68, type: 3}
-  m_Name: AK-47
+  m_Name: Mk41
   m_EditorClassIdentifier: 
-  _name: AK
-  _image: {fileID: 21300044, guid: 5acb27b603af6d44ea6113c4b7b15385, type: 3}
-  _cost: 5000
+  _name: M1A4F
+  _image: {fileID: 21300046, guid: 5acb27b603af6d44ea6113c4b7b15385, type: 3}
+  _cost: 15000
   _isBuyed: 1
-  _weapon: {fileID: 7489686984377146253, guid: cd9d9d68b90344b44b96c4369ad1530e, type: 3}
+  _weapon: {fileID: 3718725114448914685, guid: 31ab5db138c76dd4886d65d56d96cfc2, type: 3}
