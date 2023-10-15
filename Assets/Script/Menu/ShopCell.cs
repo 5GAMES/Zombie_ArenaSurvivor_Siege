@@ -20,6 +20,9 @@ public class ShopCell : MonoBehaviour
 
     public void Buy()
     {
+        var wallet = PlayerMotor.Singleton.GetComponent<Wallet>();
+        if (wallet.Money < _item.Cost) return;
+        wallet.SpendMoney(_item.Cost);
         _item.OnBuy();
         OnBuy?.Invoke();
     }

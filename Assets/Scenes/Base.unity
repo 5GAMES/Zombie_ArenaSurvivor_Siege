@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -25152,7 +25152,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 106980196}
-  - {fileID: 766245655}
   m_Father: {fileID: 64595687}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -28766,84 +28765,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 214127429}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &760975987
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 675462727}
-    m_Modifications:
-    - target: {fileID: 6182549837193337141, guid: cd9d9d68b90344b44b96c4369ad1530e,
-        type: 3}
-      propertyPath: m_Name
-      value: AK-47
-      objectReference: {fileID: 0}
-    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.18399999
-      objectReference: {fileID: 0}
-    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7489686984377146253, guid: cd9d9d68b90344b44b96c4369ad1530e,
-        type: 3}
-      propertyPath: _hit
-      value: 
-      objectReference: {fileID: 106980195}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cd9d9d68b90344b44b96c4369ad1530e, type: 3}
 --- !u!1001 &762596800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29130,12 +29051,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4300953303566678, guid: 721bcbac4346fe646b322772bf2d5ece,
     type: 3}
   m_PrefabInstance: {fileID: 1617837030}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &766245655 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6811418453052654479, guid: cd9d9d68b90344b44b96c4369ad1530e,
-    type: 3}
-  m_PrefabInstance: {fileID: 760975987}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &769055131
 PrefabInstance:
@@ -30808,7 +30723,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -217, y: -48.15625}
+  m_AnchoredPosition: {x: -217, y: 0}
   m_SizeDelta: {x: 95.43091, y: 95.43201}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &819061873
@@ -80488,7 +80403,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.80100006, y: 0.8916667}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 44.75, y: 5.5}
+  m_AnchoredPosition: {x: 44.75, y: 0}
   m_SizeDelta: {x: 342.213, y: 30.867}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2066145086
@@ -81482,6 +81397,7 @@ GameObject:
   - component: {fileID: 2093858779}
   - component: {fileID: 2093858778}
   - component: {fileID: 2093858780}
+  - component: {fileID: 2093858781}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -81703,6 +81619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponHandle: {fileID: 675462726}
+  _shootPoint: {fileID: 106980195}
 --- !u!114 &2093858780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81716,6 +81633,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tex: {fileID: 333467079}
+--- !u!114 &2093858781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093858767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917145f78d48d144d8ff9a08dcdd8e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grenadePrefab: {fileID: 3118048715506081592, guid: 8f038c960d67bd84cbe6ff33412d18c7,
+    type: 3}
+  _grenadeThrowPoint: {fileID: 106980195}
 --- !u!4 &2094267145 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 2a9be575fa139d043a15d98eed03690a,
@@ -81774,6 +81706,7 @@ MonoBehaviour:
   _enemyPerSpawn: 4
   _additionalEnemy: 3
   _timeToNextWave: 8
+  _spawndZombi: []
 --- !u!4 &2094983566
 Transform:
   m_ObjectHideFlags: 0

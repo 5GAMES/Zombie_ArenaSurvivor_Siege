@@ -60,6 +60,7 @@ public class Mate : MonoBehaviour
         if (PlayerMotor.Singleton == null
             || Vector3.Distance(transform.position, PlayerMotor.Singleton.transform.position) < _closeToPlayerDisnance)
         {
+            _agent.destination = transform.position;
             OnStay?.Invoke();
             return;
         }

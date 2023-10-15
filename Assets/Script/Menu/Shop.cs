@@ -2,17 +2,17 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class Shop : MonoBehaviour
 {
     [Header("Links : ")]
-    [SerializeField] private Image _image;
-    [SerializeField] private Text _name;
-    [SerializeField] private Button _buyButton;
+    
     [SerializeField] private Transform _container;
     [SerializeField] private ShopCell _cell;
     [SerializeField] private List<ShopItem> _items;
-
+    private int _curretnPage = 0;
+    private int _drawOnOneScreen = 9;
     private void OnEnable()
     {
         Render();
@@ -21,34 +21,27 @@ public class Shop : MonoBehaviour
     private void Render()
     {
         foreach(Transform child in _container) Destroy(child.gameObject);
-        
-        foreach(var item in  _items)
+        var itemsCount = _curretnPage + _drawOnOneScreen;
+        for(int i = _curretnPage; i < itemsCount; i++)
         {
+            if (i > _items.Count - 1) return;
             var cell = Instantiate(_cell, _container);
-            cell.Render(item);
-            cell.OnBuy += SetBuyedItem;
+            cell.Render(_items[i]);
         }
-
-    }
-
-    private void SetBuyedItem()
-    {
-        _buyButton.interactable = false;
-        _buyButton.GetComponentInChildren<Text>().text = "Куплено";
     }
 
     public void Forward()
     {
-
+        if(_curretnPage + 9 > _items.Count + 9) _curretnPage = -9;
+        _curretnPage += 9;
+        Render();
     }
 
     public void Back()
     {
-
-    }
-
-    public async void Buy()
-    {
-
+        if(_curretnPage - 9 < 0) _curretnPage = _items.Count + 9;
+        
+        _curretnPage -= 9;
+        Render();
     }
 }

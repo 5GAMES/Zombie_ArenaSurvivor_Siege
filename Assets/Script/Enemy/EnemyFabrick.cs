@@ -13,7 +13,8 @@ public class EnemyFabrick : MonoBehaviour
     [SerializeField, Range(1, 7)] private int _enemyPerSpawn;
     [SerializeField] private int _additionalEnemy;
     [SerializeField, Range(1, 50)] private int _timeToNextWave;
-    private int _enemysDieCount = 0, _wave = 0, _tier = 0;
+    private int _wave = 0, _tier = 0;
+    [SerializeField]private List<Target> _spawndZombi = new();
 
     private void Start() => StartLevel();
 
@@ -21,32 +22,40 @@ public class EnemyFabrick : MonoBehaviour
     {
         for(int i = 0; i < _enemyPerSpawn; i++)
         {
-            var num = UnityEngine.Random.Range(0, _spawnPoints.Count - 1);
+            var num = UnityEngine.Random.Range(0, _spawnPoints.Count);
             var point = _spawnPoints[num];
             var enemy = Instantiate(ChoiseEnemy().gameObject, point.transform.position, Quaternion.identity);
-            enemy.GetComponent<Target>().OnDie += () => StartCoroutine(nameof(CheckEnemyCount));
-        } 
+            enemy.GetComponent<Target>().OnDiee += CheckEnemyCount;
+            _spawndZombi.Add(enemy.GetComponent<Target>());
+        }
     }
 
-    private IEnumerator CheckEnemyCount()
+    private void CheckEnemyCount(Target target)
     {
-        _enemysDieCount++;
-        if (_enemysDieCount == _enemyPerSpawn)
+        _spawndZombi.Remove(target);
+        if(_spawndZombi.Count == 0)
         {
-            _wave++;
-            int time = _timeToNextWave;
-            if (_wave % 5 == 0)
-            {
-                _tier++;
-                _timeToNextWave += 30;
-            }
-            OnLevelEnd?.Invoke();
-            _enemyPerSpawn += _additionalEnemy;
-            _enemysDieCount = 0;
-            yield return new WaitForSeconds(_timeToNextWave);
-            _timeToNextWave = time;
-            StartLevel();
+            StartCoroutine(StartNewWave());
         }
+    }
+
+    private IEnumerator StartNewWave()
+    {
+        _wave++;
+        int time = _timeToNextWave;
+        if (_wave % 5 == 0)
+        {
+            print("tierUP");
+            _tier++;
+            if (_tier > 4) _tier = 0;
+            _timeToNextWave += 30;
+        }
+        OnLevelEnd?.Invoke();
+        _enemyPerSpawn += _additionalEnemy;
+        yield return new WaitForSeconds(_timeToNextWave);
+        _timeToNextWave = time;
+        StartLevel();
+        yield break;
     }
 
     private EnemyMovement ChoiseEnemy()

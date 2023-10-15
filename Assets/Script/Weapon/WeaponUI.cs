@@ -10,6 +10,7 @@ public class WeaponUI : MonoBehaviour
     {
         GetComponent<Weapon>().OnMagazineValueChnaged += Render;
         SetText(PlayerMotor.Singleton.GetComponent<WeaponUIController>().MagazinTExt);
+        Render(GetComponent<Weapon>().MagazinValue);
     }
 
     private void Render(int value) => _textmagazin.text = value.ToString();

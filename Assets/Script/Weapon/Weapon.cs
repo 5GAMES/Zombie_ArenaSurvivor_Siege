@@ -1,11 +1,10 @@
 using System;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] GameObject _hit;
+    [SerializeField] private GameObject _hit;
     public Action<int> OnMagazineValueChnaged;
     [Header("Stats")]
     [SerializeField] private float _damage = 10f;
@@ -25,12 +24,13 @@ public class Weapon : MonoBehaviour
     private bool _singleFireMode = true;  
     private float nextTimeToFire = 0f;
     private bool _IsRecharge;
-    public GameObject BulletInstancer { get { return _hit; } }
+    public GameObject BulletInstancer { get { return _hit; } set { _hit = value; } }
+    public int MagazinValue { get { return _magazine; } }
 
     public void Die() => Destroy(gameObject);
     public void DisableShooting() => _IsShootActive = false;
     public void EnableShooting() => _IsShootActive = true;
-
+    
 
     private void Start()
     {
@@ -63,10 +63,7 @@ public class Weapon : MonoBehaviour
             Recharge();
         }
     }
-    public void SearchPoint()
-    {
-        _hit = GameObject.Find("Point");
-    }
+
     public void HardShoot()
     {
         if (_singleFireMode) 
@@ -79,9 +76,6 @@ public class Weapon : MonoBehaviour
             }
             if (_magazine <= 0)
             {
-               
-               // _gameManager.UpdateHintsText("Нажмите клавишу R ");
-                Debug.Log("Закончились");
             }
         }
         else
@@ -90,9 +84,7 @@ public class Weapon : MonoBehaviour
             {
                 if (_magazine <= 0)
                 {
-                   // _gameManager.UpdateHintsText("Нажмите клавишу R ");
-                    
-                    Debug.Log("Закончились");
+
                 }
                 else
                 {
