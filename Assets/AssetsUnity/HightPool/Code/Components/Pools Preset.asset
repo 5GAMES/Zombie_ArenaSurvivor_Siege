@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1675ca1885e647e88c4e999d1164b08c, type: 3}
+  m_Name: Pools Preset
+  m_EditorClassIdentifier: 
+  _poolPresets:
+  - _name: 1
+    _enabled: 0
+    _prefab: {fileID: 824146447025490531, guid: aa468308c047f484f83fc3bde52bb639,
+      type: 3}
+    _behaviourOnCapacityReached: 0
+    _despawnType: 0
+    _callbacksType: 0
+    _capacity: 64
+    _preloadSize: 16
+    _dontDestroyOnLoad: 0
+    _warnings: 0
+  - _name: 2
+    _enabled: 0
+    _prefab: {fileID: 935006614429883484, guid: 3ad99910b4c6baa488087b53c2384ecc,
+      type: 3}
+    _behaviourOnCapacityReached: 0
+    _despawnType: 0
+    _callbacksType: 0
+    _capacity: 64
+    _preloadSize: 16
+    _dontDestroyOnLoad: 0
+    _warnings: 0
+  - _name: 3
+    _enabled: 0
+    _prefab: {fileID: 3424101428774807177, guid: 7591b0ae2171c0f41b44bd730a97ecd6,
+      type: 3}
+    _behaviourOnCapacityReached: 0
+    _despawnType: 0
+    _callbacksType: 0
+    _capacity: 64
+    _preloadSize: 16
+    _dontDestroyOnLoad: 0
+    _warnings: 0
+  - _name: 4
+    _enabled: 0
+    _prefab: {fileID: 2262829184316972235, guid: b2df50779abec6b4cbadcd22ba59ca59,
+      type: 3}
+    _behaviourOnCapacityReached: 0
+    _despawnType: 0
+    _callbacksType: 0
+    _capacity: 64
+    _preloadSize: 16
+    _dontDestroyOnLoad: 0
+    _warnings: 0
