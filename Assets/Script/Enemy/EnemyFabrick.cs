@@ -2,12 +2,18 @@ using NTC.Pool;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class EnemyFabrick : MonoBehaviour
 {
     public Action OnLevelEnd;
-    
+    [Header("Wave")]
+    [SerializeField] private GameObject _sliderGameObject;
+    [SerializeField] private Slider _sliderWaveCout;
+    [SerializeField] private TextMeshProUGUI _textWave;
     [SerializeField] private List<EnemyMovement> _first, _second, _thrid, _four, _five;
     [SerializeField] private List<GameObject> _spawnPoints;
     [Header("Values : ")]
@@ -17,8 +23,22 @@ public class EnemyFabrick : MonoBehaviour
     private int _wave = 0, _tier = 0;
     [SerializeField]private List<Target> _spawndZombi = new();
 
-    private void Start() => StartLevel();
-
+    private void Start()
+    {
+        _textWave.text = _wave.ToString();
+        _sliderWaveCout.minValue = 0;
+        _sliderWaveCout.maxValue = _timeToNextWave;
+        StartLevel();
+        
+    }
+    private void Update()
+    {
+        if(_sliderGameObject.activeSelf)
+        {
+            _sliderWaveCout.value -= Time.deltaTime;
+        }
+           
+    }
     public void StartLevel()
     {
         for(int i = 0; i < _enemyPerSpawn; i++)
@@ -43,6 +63,7 @@ public class EnemyFabrick : MonoBehaviour
     private IEnumerator StartNewWave()
     {
         _wave++;
+        _textWave.text = _wave.ToString();
         int time = _timeToNextWave;
         if (_wave % 5 == 0)
         {
@@ -50,10 +71,16 @@ public class EnemyFabrick : MonoBehaviour
             _tier++;
             if (_tier > 4) _tier = 0;
             _timeToNextWave += 30;
+           
+
+
         }
         OnLevelEnd?.Invoke();
         _enemyPerSpawn += _additionalEnemy;
+        _sliderGameObject.SetActive(true);
+        _sliderWaveCout.value = _timeToNextWave;
         yield return new WaitForSeconds(_timeToNextWave);
+        _sliderGameObject.SetActive(false);
         _timeToNextWave = time;
         StartLevel();
         yield break;

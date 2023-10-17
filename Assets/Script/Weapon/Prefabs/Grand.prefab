@@ -121,7 +121,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f6e164b51351379428344be7de66874a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f6e164b51351379428344be7de66874a,
         type: 3}
@@ -272,8 +272,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 176
   _throwForce: 26
-  _explosionRadius: 13
-  _explosionForce: 953
+  _explosionRadius: 1.5
+  _explosionForce: 300
   _lifeTime: 0.5
   _particleSystem: {fileID: 3335457282035386444}
 --- !u!4 &4327990163266287741 stripped

@@ -12,6 +12,7 @@ public class Target : MonoBehaviour, IDamageable
 
     [SerializeField]private float _maxHealth = 50;
     [SerializeField, Range(5,25)] private int _gold = 5;
+ 
     private float _health;
     private bool _canBeDamaged = true;
     private bool _isDead = false;
@@ -23,6 +24,7 @@ public class Target : MonoBehaviour, IDamageable
         if (!_canBeDamaged || _isDead) return;
         _canBeDamaged = false;
         _health -= damage;
+        
         if(_health <= 0)
         {
             _isDead = true;

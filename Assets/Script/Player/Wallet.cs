@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class Wallet : MonoBehaviour
@@ -8,7 +9,6 @@ public class Wallet : MonoBehaviour
     public int Money { get { return _money; } }
 
     private void Start() => OnValueChanged?.Invoke(_money);
-
     public void AddMoney(int value)
     {
         _money += value;
