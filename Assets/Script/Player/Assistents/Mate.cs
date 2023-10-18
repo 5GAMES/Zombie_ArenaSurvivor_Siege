@@ -41,7 +41,6 @@ public class Mate : MonoBehaviour
                 float targetAngle = Mathf.Atan2(directionToEnemy.x, directionToEnemy.z) * Mathf.Rad2Deg + 45f;
                 Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
-                Debug.DrawLine(transform.position, _target.transform.position, Color.red);
 
                 _weapon.Shoot();
                 OnTargetFounded?.Invoke();

@@ -153,9 +153,9 @@ public class Weapon : MonoBehaviour
         if (Physics.Raycast(_hit.transform.position, _hit.transform.forward,out hit, _range))
         {
             IDamageable target = hit.transform.GetComponent<IDamageable>();
-            if(target != null)
+            if(target != null && target.GetType() != typeof(PlayerHealth))
             {
-               GameObject game = Instantiate(_bloomEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                var game = Instantiate(_bloomEffect, hit.point, Quaternion.LookRotation(hit.normal));
                 Destroy(game.gameObject, 1f);
                 target.TakeDamage(_damage);
             }
