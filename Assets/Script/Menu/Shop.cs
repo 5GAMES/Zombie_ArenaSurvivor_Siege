@@ -1,8 +1,5 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class Shop : MonoBehaviour
 {
