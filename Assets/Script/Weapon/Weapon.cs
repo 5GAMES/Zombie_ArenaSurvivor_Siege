@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -14,7 +15,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] int _magazine = 30;
     [SerializeField] float _audioClips;
     [Header("Links")]
-    [SerializeField] ParticleSystem _bloomEffect;
+    [SerializeField] GameObject _bloomEffect;
     [SerializeField] ParticleSystem _muzzleFlash;
     [SerializeField] GameObject _impactEffect;
     [SerializeField] private bool _IsShootActive;
@@ -154,7 +155,8 @@ public class Weapon : MonoBehaviour
             IDamageable target = hit.transform.GetComponent<IDamageable>();
             if(target != null)
             {
-                Destroy(Instantiate(_bloomEffect, hit.point, Quaternion.LookRotation(hit.normal)), 1.5f);
+               GameObject game = Instantiate(_bloomEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(game.gameObject, 1f);
                 target.TakeDamage(_damage);
             }
 

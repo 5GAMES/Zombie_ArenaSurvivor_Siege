@@ -46,6 +46,8 @@ public class EnemyFabrick : MonoBehaviour
             var num = UnityEngine.Random.Range(0, _spawnPoints.Count);
             var point = _spawnPoints[num];
             var enemy = NightPool.Spawn(ChoiseEnemy().gameObject, point.transform.position, Quaternion.identity);
+            enemy.GetComponent<Target>().Initialize();
+            enemy.GetComponent<EnemyMovement>().Initialize();
             enemy.GetComponent<Target>().OnDiee += CheckEnemyCount;
             _spawndZombi.Add(enemy.GetComponent<Target>());
         }
@@ -65,7 +67,7 @@ public class EnemyFabrick : MonoBehaviour
         _wave++;
         _textWave.text = _wave.ToString();
         int time = _timeToNextWave;
-        if (_wave % 5 == 0)
+        if (_wave % 15 == 0)
         {
             print("tierUP");
             _tier++;

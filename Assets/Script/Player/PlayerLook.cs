@@ -34,13 +34,10 @@ public class PlayerLook : MonoBehaviour
 
     public void ProcessLook(Vector2 input)
     {
-        float mouseX = input.x;
-        float mouseY = input.y;
-        
-        xRotation -= (mouseY * Time.deltaTime) * ySensitivity;
+        xRotation -= input.y * Time.deltaTime * ySensitivity;
         xRotation = Mathf.Clamp(xRotation, -50f, 50f);
-        _cam.transform.localRotation = Quaternion.Euler(xRotation,0,0);
+        _cam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
 
-        transform.Rotate(Vector3.up * (mouseX * Time.deltaTime) * xSensitivity);
+        transform.Rotate(Vector3.up * input.x * Time.deltaTime * xSensitivity);
     }
 }

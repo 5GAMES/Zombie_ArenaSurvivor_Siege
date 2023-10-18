@@ -38,7 +38,13 @@ public class Target : MonoBehaviour, IDamageable
         await Task.Delay(100);
         _canBeDamaged = true;
     }
-
+    public void Initialize()
+    {
+        _health = _maxHealth;
+        _isDead = false;
+        _canBeDamaged = true;
+        // другие начальные установки
+    }
     public void TakeHeal(float value)
     {
         if(_health + value <= _maxHealth)_health += value;
