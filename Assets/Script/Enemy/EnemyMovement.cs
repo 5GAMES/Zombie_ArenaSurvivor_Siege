@@ -26,4 +26,10 @@ public class EnemyMovement : MonoBehaviour
         OnMove?.Invoke();
         _agent.destination = PlayerMotor.Singleton.transform.position;
     }
+    public void Initialize()
+    {
+        _canMoving = true;
+        if (_agent != null)
+            _agent.isStopped = false;
+    }
 }

@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -14,6 +15,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] int _magazine = 30;
     [SerializeField] float _audioClips;
     [Header("Links")]
+    [SerializeField] GameObject _bloomEffect;
     [SerializeField] ParticleSystem _muzzleFlash;
     [SerializeField] GameObject _impactEffect;
     [SerializeField] private bool _IsShootActive;
@@ -24,6 +26,7 @@ public class Weapon : MonoBehaviour
     private bool _singleFireMode = true;  
     private float nextTimeToFire = 0f;
     private bool _IsRecharge;
+    private bool _IsBloom;
     public GameObject BulletInstancer { get { return _hit; } set { _hit = value; } }
     public int MagazinValue { get { return _magazine; } }
 
@@ -46,6 +49,7 @@ public class Weapon : MonoBehaviour
         _IsShoot = true;
         _IsShootActive = true;
         _IsRecharge = false;
+        _IsBloom = false;
     }
 
     private void Update()
@@ -151,6 +155,8 @@ public class Weapon : MonoBehaviour
             IDamageable target = hit.transform.GetComponent<IDamageable>();
             if(target != null)
             {
+               GameObject game = Instantiate(_bloomEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(game.gameObject, 1f);
                 target.TakeDamage(_damage);
             }
 
@@ -158,6 +164,7 @@ public class Weapon : MonoBehaviour
             {
                 hit.rigidbody.AddForce(-hit.normal * _impactForce);
             }
+            
             Destroy(Instantiate(_impactEffect, hit.point, Quaternion.LookRotation(hit.normal)), 2f);
         }
     }

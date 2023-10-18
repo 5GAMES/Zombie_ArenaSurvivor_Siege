@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a7a28031e547049b3660f14ef793ed, type: 3}
   m_Name: AK
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 100
   range: 100
   impactForce: 100
   fireRate: 15
-  magazine: 30
-  magazineCapacity: 30
+  magazine: 300
+  magazineCapacity: 300
   _audioclips: 4

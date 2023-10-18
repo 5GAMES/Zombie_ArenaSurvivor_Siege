@@ -6,10 +6,19 @@ public class GrenadeHandler : MonoBehaviour
     [SerializeField] private Grenade grenadePrefab;
     [SerializeField] private GameObject _grenadeThrowPoint;
     private bool _onCooldown = false;
-
+    public int GrenadeCout = 1;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G)) Throw();
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            if(GrenadeCout > 0)
+            {
+                Throw();
+            }
+            
+        }
+
+        
     }
 
     private async void Throw()
