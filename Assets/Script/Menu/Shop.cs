@@ -46,7 +46,7 @@ public class Shop : MonoBehaviour
     {
         foreach (ShopItem item in _items)
         {
-            item.Refresh();
+           item.Refresh();
         }
     }
 }

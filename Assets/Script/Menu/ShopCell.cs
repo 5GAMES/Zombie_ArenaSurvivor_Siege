@@ -2,6 +2,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 using System;
+using static UnityEditor.Progress;
 
 public class ShopCell : MonoBehaviour
 {
@@ -9,7 +10,11 @@ public class ShopCell : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _name, _cost;
     [SerializeField] private Image _icon;
     private IShopItem _item;
-
+    private GamaManager _gamaManager;
+    private void Start()
+    {
+      _gamaManager = FindObjectOfType<GamaManager>();
+    }
     public void Render(IShopItem item)
     {
         _cost.text = item.Cost.ToString();
@@ -28,6 +33,8 @@ public class ShopCell : MonoBehaviour
         var wallet = PlayerMotor.Singleton.GetComponent<Wallet>();
         if (wallet.Money < _item.Cost) return;
         wallet.SpendMoney(_item.Cost);
+        _gamaManager.Icones.sprite = _icon.sprite;
+        _name.text = "Куплено";
         _item.OnBuy();
         OnBuy?.Invoke();
     }

@@ -31,9 +31,12 @@ public class Target : MonoBehaviour, IDamageable
             _health = 0;
             OnDie?.Invoke();
             OnDiee?.Invoke(this);
-            if (PlayerMotor.Singleton != null)PlayerMotor.Singleton.GetComponent<Wallet>().AddMoney(_gold);
-            ZombieCounter.UpdateStat();
-            NightPool.Despawn(this.gameObject, 2f);
+            if (PlayerMotor.Singleton != null)
+            {
+                PlayerMotor.Singleton.GetComponent<Wallet>().AddMoney(_gold);
+                ZombieCounter.UpdateStat();
+                NightPool.Despawn(this.gameObject, 2f);
+            }
         }
         await Task.Delay(100);
         _canBeDamaged = true;

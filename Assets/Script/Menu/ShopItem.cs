@@ -7,7 +7,6 @@ public class ShopItem : ScriptableObject, IShopItem
     Sprite IShopItem.Image => _image;
     string IShopItem.Name => _name;
     public int Cost => _cost;
-
     [SerializeField] private string _name;
     [SerializeField] private Sprite _image;
     [SerializeField] private int _cost;
@@ -16,7 +15,6 @@ public class ShopItem : ScriptableObject, IShopItem
     {
         _isBuyed = true;
     }
-
     public void Refresh()
     {
         _isBuyed = false;

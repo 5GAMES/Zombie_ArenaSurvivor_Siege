@@ -8,7 +8,7 @@ public static class ZombieCounter
     public static void UpdateStat()
     {
         ZombieKilled++;
-        OnValueChanged?.Invoke(ZombieKilled);
+        //OnValueChanged?.Invoke(ZombieKilled);
     }
 
     public static void SetPrefsValue(int value) => ZombieKilled = value;
