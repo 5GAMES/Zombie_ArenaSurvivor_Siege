@@ -41,4 +41,12 @@ public class Shop : MonoBehaviour
         _curretnPage -= 9;
         Render();
     }
+
+    private void OnDestroy()
+    {
+        foreach (ShopItem item in _items)
+        {
+            item.Refresh();
+        }
+    }
 }

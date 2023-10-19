@@ -11,7 +11,7 @@ public class EnemyDamage : MonoBehaviour
    
     private void CheckPlayer(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth health)) TryDamage(health);
+        if (collision.gameObject.TryGetComponent(out PlayerHealth health)) TryDamage(health);
     }
 
     private async void TryDamage(PlayerHealth health)

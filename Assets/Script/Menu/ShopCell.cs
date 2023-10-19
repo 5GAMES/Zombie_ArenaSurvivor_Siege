@@ -9,7 +9,7 @@ public class ShopCell : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _name, _cost;
     [SerializeField] private Image _icon;
     private IShopItem _item;
-    private bool _IsGranete;
+
     public void Render(IShopItem item)
     {
         _cost.text = item.Cost.ToString();
@@ -20,12 +20,16 @@ public class ShopCell : MonoBehaviour
 
     public void Buy()
     {
-            var wallet = PlayerMotor.Singleton.GetComponent<Wallet>();
-            if (wallet.Money < _item.Cost) return;
-            wallet.SpendMoney(_item.Cost);
+        if (_item.IsBuyed)
+        {
             _item.OnBuy();
-            OnBuy?.Invoke();
- 
+            return;
+        }
+        var wallet = PlayerMotor.Singleton.GetComponent<Wallet>();
+        if (wallet.Money < _item.Cost) return;
+        wallet.SpendMoney(_item.Cost);
+        _item.OnBuy();
+        OnBuy?.Invoke();
     }
     
 }

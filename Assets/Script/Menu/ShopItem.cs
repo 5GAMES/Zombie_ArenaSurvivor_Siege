@@ -16,4 +16,9 @@ public class ShopItem : ScriptableObject, IShopItem
     {
         _isBuyed = true;
     }
+
+    public void Refresh()
+    {
+        _isBuyed = false;
+    }
 }
