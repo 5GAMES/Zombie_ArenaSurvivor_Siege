@@ -10,6 +10,9 @@ public class Shop : MonoBehaviour
     [SerializeField] private List<ShopItem> _items;
     private int _curretnPage = 0;
     private int _drawOnOneScreen = 9;
+
+    private void Start() => PlayerMotor.Singleton.GetComponent<PlayerHealth>().OnDie += OnDie;
+
     private void OnEnable()
     {
         Render();
@@ -24,6 +27,7 @@ public class Shop : MonoBehaviour
             if (i > _items.Count - 1) return;
             var cell = Instantiate(_cell, _container);
             cell.Render(_items[i]);
+            cell.OnBuy += Render;
         }
     }
 
@@ -42,7 +46,7 @@ public class Shop : MonoBehaviour
         Render();
     }
 
-    private void OnDestroy()
+    private void OnDie()
     {
         foreach (ShopItem item in _items)
         {

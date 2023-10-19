@@ -1,6 +1,8 @@
 using System;
+using UnityEngine;
 
-public static class ZombieCounter
+[CreateAssetMenu(menuName = "ZombieCounter")]
+public class ZombieCounter : ScriptableObject
 {
     public static event Action<int> OnValueChanged;
     public static int ZombieKilled { get; private set; }
@@ -10,7 +12,5 @@ public static class ZombieCounter
         ZombieKilled++;
         OnValueChanged?.Invoke(ZombieKilled);
     }
-
-    public static void SetPrefsValue(int value) => ZombieKilled = value;
     
 }

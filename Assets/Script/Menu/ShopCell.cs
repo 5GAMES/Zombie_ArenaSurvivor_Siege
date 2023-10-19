@@ -12,8 +12,15 @@ public class ShopCell : MonoBehaviour
 
     public void Render(IShopItem item)
     {
+        if(item.GetType() == typeof(ShopGrenade))
+        {
+            var newItem = (ShopGrenade)item;
+            newItem.CheckAllBuyed();
+        }
+        if (item.IsBuyed) _name.text = "Куплено";
+        else _name.text = item.Name;
+        
         _cost.text = item.Cost.ToString();
-        _name.text = item.Name;
         _icon.sprite = item.Image;
         _item = item;
     }

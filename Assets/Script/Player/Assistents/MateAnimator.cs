@@ -5,6 +5,7 @@ public class MateAnimator : MonoBehaviour
 {
     private Mate _link;
     [SerializeField] private Animator _anim;
+
     private void Start()
     {
         _link = GetComponent<Mate>();

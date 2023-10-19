@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
-    [SerializeField] private Canvas _menu, _shop;
+    [SerializeField] private Canvas _menu;
     [SerializeField] private GamaManager _gamaManager;
+    [SerializeField] private GameObject _shop;
     private bool _isMenuActive = false;
     private void Update()
     {
@@ -12,6 +13,7 @@ public class Menu : MonoBehaviour
             PauseGames();
         }
     }
+
     public void PauseGames()
     {
         _isMenuActive = !_isMenuActive;
@@ -25,7 +27,7 @@ public class Menu : MonoBehaviour
         else
         {
             Time.timeScale = 1;
-            _shop.enabled = false;
+            _shop.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             _gamaManager.Boken();
         }

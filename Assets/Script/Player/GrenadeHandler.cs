@@ -11,11 +11,14 @@ public class GrenadeHandler : MonoBehaviour
     [SerializeField] private int _maxGrenade = 5;
     [SerializeField] TextMeshProUGUI _textCoutGrenade;
     public int MaxGrenadeCount { get { return _maxGrenade; } }
+    public int CurrentGrenadeCount { get { return _genadeCout; } }
     private bool _onCooldown = false;
+
     private void Start()
     {
        _textCoutGrenade.text = _genadeCout.ToString();
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.G))
@@ -26,9 +29,9 @@ public class GrenadeHandler : MonoBehaviour
             }
         }
     }
+
     private async void Throw()
     {
-
         if (_onCooldown) return;
         _genadeCout--;
         _textCoutGrenade.text = _genadeCout.ToString();
@@ -47,10 +50,5 @@ public class GrenadeHandler : MonoBehaviour
             _textCoutGrenade.text = _genadeCout.ToString();
         }
         return _genadeCout;
-        
-        
-        
     }
-
-
 }
