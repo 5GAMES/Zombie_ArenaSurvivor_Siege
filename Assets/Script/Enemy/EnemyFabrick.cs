@@ -67,15 +67,12 @@ public class EnemyFabrick : MonoBehaviour
         _wave++;
         _textWave.text = _wave.ToString();
         int time = _timeToNextWave;
-        if (_wave % 15 == 0)
+        if (_wave % 5 == 0)
         {
             print("tierUP");
             _tier++;
             if (_tier > 4) _tier = 0;
             _timeToNextWave += 30;
-           
-
-
         }
         OnLevelEnd?.Invoke();
         _enemyPerSpawn += _additionalEnemy;

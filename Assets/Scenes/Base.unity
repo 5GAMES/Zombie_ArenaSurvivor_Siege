@@ -9517,7 +9517,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.93700004, y: 0.035}
   m_AnchorMax: {x: 1, y: 0.075}
-  m_AnchoredPosition: {x: 12.971985, y: 0}
+  m_AnchoredPosition: {x: 12.971893, y: 0}
   m_SizeDelta: {x: 99.9518, y: 19.0471}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &203895389
@@ -33445,14 +33445,13 @@ GameObject:
   m_Component:
   - component: {fileID: 837829172}
   - component: {fileID: 837829171}
-  - component: {fileID: 837829173}
   m_Layer: 0
   m_Name: SpawnEnemy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &837829171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33505,33 +33504,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &837829173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 837829170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5dac5a9786b4db18d8ad4187d7245d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _updateType: 0
-  preloadPoolsType: 1
-  poolsPreset: {fileID: 11400000, guid: c3aac0162504a9d4993e3ee3842794d9, type: 2}
-  _behaviourOnCapacityReached: 2
-  _despawnType: 2
-  _callbacksType: 3
-  _capacity: 64
-  _dontDestroyOnLoad: 0
-  _sendWarnings: 1
-  _nightPoolMode: 0
-  _reactionOnRepeatedDelayedDespawn: 1
-  _despawnPersistentClonesOnDestroy: 1
-  _checkClonesForNull: 0
-  _checkForPrefab: 1
-  _clearEventsOnDestroy: 1
 --- !u!1 &838888097
 GameObject:
   m_ObjectHideFlags: 0
@@ -70117,7 +70089,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.85700005, y: 0.07666666}
   m_AnchorMax: {x: 1, y: 0.13666667}
-  m_AnchoredPosition: {x: 45, y: -0.12503052}
+  m_AnchoredPosition: {x: 45, y: -0.125}
   m_SizeDelta: {x: 282.23822, y: 29.03302}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1714782655
@@ -87711,13 +87683,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2094983566}
   - component: {fileID: 2094983565}
+  - component: {fileID: 2094983567}
   m_Layer: 0
   m_Name: SpawnEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2094983565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87730,9 +87703,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72de28f8c30632c488a68df27e6be514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sliderGameObject: {fileID: 0}
-  _sliderWaveCout: {fileID: 0}
-  _textWave: {fileID: 0}
+  _sliderGameObject: {fileID: 1950741721}
+  _sliderWaveCout: {fileID: 1950741723}
+  _textWave: {fileID: 1629564873}
   _first:
   - {fileID: 3729354012970462034, guid: aa468308c047f484f83fc3bde52bb639, type: 3}
   - {fileID: 4601519512092989750, guid: 3ad99910b4c6baa488087b53c2384ecc, type: 3}
@@ -87790,6 +87763,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2094983567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094983564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5dac5a9786b4db18d8ad4187d7245d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _updateType: 0
+  preloadPoolsType: 1
+  poolsPreset: {fileID: 11400000, guid: c3aac0162504a9d4993e3ee3842794d9, type: 2}
+  _behaviourOnCapacityReached: 2
+  _despawnType: 2
+  _callbacksType: 3
+  _capacity: 64
+  _dontDestroyOnLoad: 0
+  _sendWarnings: 1
+  _nightPoolMode: 0
+  _reactionOnRepeatedDelayedDespawn: 1
+  _despawnPersistentClonesOnDestroy: 1
+  _checkClonesForNull: 0
+  _checkForPrefab: 1
+  _clearEventsOnDestroy: 1
 --- !u!1001 &2095022469
 PrefabInstance:
   m_ObjectHideFlags: 0
