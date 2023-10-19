@@ -10,7 +10,7 @@ public class ZombieCounter : ScriptableObject
     public static void UpdateStat()
     {
         ZombieKilled++;
-        OnValueChanged?.Invoke(ZombieKilled);
+        //OnValueChanged?.Invoke(ZombieKilled);
     }
     
 }

@@ -18,6 +18,7 @@ public class Wallet : MonoBehaviour
     {
         _money += value;
         OnValueChanged?.Invoke(_money);
+        Debug.Log(_money);
     }
 
     public void SpendMoney(int value)
