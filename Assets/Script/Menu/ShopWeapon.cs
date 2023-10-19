@@ -4,7 +4,7 @@ using UnityEngine;
 public class ShopWeapon : ShopItem
 {
     [SerializeField] private Weapon _weapon;
-
+    [SerializeField] private string _weaponName;
     public override void OnBuy()
     {
         base.OnBuy();

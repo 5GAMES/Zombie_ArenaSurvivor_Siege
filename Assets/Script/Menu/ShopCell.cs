@@ -11,6 +11,7 @@ public class ShopCell : MonoBehaviour
     [SerializeField] private Image _icon;
     private IShopItem _item;
     private GamaManager _gamaManager;
+
     private void Start()
     {
       _gamaManager = FindObjectOfType<GamaManager>();
@@ -22,7 +23,6 @@ public class ShopCell : MonoBehaviour
         _icon.sprite = item.Image;
         _item = item;
     }
-
     public void Buy()
     {
         if (_item.IsBuyed)
