@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9792,6 +9792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 211896912}
   - component: {fileID: 211896911}
+  - component: {fileID: 211896913}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -9814,6 +9815,8 @@ MonoBehaviour:
   _menu: {fileID: 575563863}
   _volume: {fileID: 1699123961}
   _depthOfField: {fileID: 0}
+  _shopItem: {fileID: 0}
+  Icones: {fileID: 839308977}
 --- !u!4 &211896912
 Transform:
   m_ObjectHideFlags: 0
@@ -9831,6 +9834,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &211896913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211896910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90594bd5e489b5b43a8042ba6f09d856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &212263109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39082,7 +39097,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967089133}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -43931,7 +43946,7 @@ GameObject:
   - component: {fileID: 1071666465}
   - component: {fileID: 1071666464}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Text(CoutW)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87589,7 +87604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db95c3278a90908408983e531c8e1428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _money: 1312312
+  _money: 0
 --- !u!114 &2093858777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87791,9 +87806,9 @@ MonoBehaviour:
   _updateType: 0
   preloadPoolsType: 1
   poolsPreset: {fileID: 11400000, guid: c3aac0162504a9d4993e3ee3842794d9, type: 2}
-  _behaviourOnCapacityReached: 2
+  _behaviourOnCapacityReached: 3
   _despawnType: 2
-  _callbacksType: 3
+  _callbacksType: 0
   _capacity: 64
   _dontDestroyOnLoad: 0
   _sendWarnings: 1
