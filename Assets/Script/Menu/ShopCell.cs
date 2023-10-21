@@ -22,6 +22,7 @@ public class ShopCell : MonoBehaviour
         {
             var newItem = (ShopGrenade)item;
             newItem.CheckAllBuyed();
+            _gamaManager.Icones.sprite = item.Image;
         }
         if (item.IsBuyed) _name.text = "Куплено";
         else _name.text = item.Name;
