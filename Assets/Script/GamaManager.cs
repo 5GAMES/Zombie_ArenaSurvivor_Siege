@@ -63,10 +63,14 @@ public class GamaManager : MonoBehaviour
             {
                 _IsAdplay = false;
                 _fullsceenAd.SetActive(false);
-                _sdk._FullscreenShow();
+                FullcreenShow();
 
             }
         }
+    }
+    public void FullcreenShow()
+    {
+        _sdk._FullscreenShow();
     }
     private IEnumerator AdFullScreen()
     {

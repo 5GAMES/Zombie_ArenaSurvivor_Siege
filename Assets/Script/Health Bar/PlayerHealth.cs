@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] private float _maxHealth;
     [SerializeField] private Slider _sliderHP;
     [SerializeField] private TextMeshProUGUI _textHP;
+    [SerializeField] private LevelConrtoller _levelConrtoller;
     private void Start()
     {
         _textHP.text = _health.ToString();
@@ -30,6 +31,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (_health <= 0)
         {
             _health = 0;
+            _levelConrtoller.Ñhoice();
             OnDie?.Invoke();
         }
         OnValeChanged?.Invoke(_health);

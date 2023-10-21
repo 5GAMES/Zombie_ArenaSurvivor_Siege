@@ -7,7 +7,7 @@ public class UIEnemyDieCounter : MonoBehaviour
     private void Start()
     {
         ZombieCounter.OnValueChanged += Render;
-        Render(ZombieCounter.ZombieKilled);
+       // Render(ZombieCounter.ZombieKilled);
     }
     private void OnDestroy() => ZombieCounter.OnValueChanged -= Render;
     private void Render(int value) => _counterField.text = value.ToString();
