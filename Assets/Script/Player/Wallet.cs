@@ -5,12 +5,15 @@ public class Wallet : MonoBehaviour
 {
     public Action<int> OnValueChanged;
     [SerializeField] private int _money;
+    [SerializeField] private Save _save;
     public int Money { get { return _money; } }
 
-    private void OnDestroy() => PlayerPrefs.SetInt("Money", _money);
+    private void OnDestroy() => _save.Cash = _money;
     private void Start()
     {
-        _money = PlayerPrefs.GetInt("Money");
+        ZombieCounter.Saver = _save;
+        ZombieCounter.SetStat(_save.KilledZombie);
+        _money = _save.Cash;
         OnValueChanged?.Invoke(_money);
     }
 
@@ -18,7 +21,6 @@ public class Wallet : MonoBehaviour
     {
         _money += value;
         OnValueChanged?.Invoke(_money);
-        Debug.Log(_money);
     }
 
     public void SpendMoney(int value)
