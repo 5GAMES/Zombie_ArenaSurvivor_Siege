@@ -6895,7 +6895,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 75
   _gold: 10
-  _particledamage: {fileID: 6205067341575766421}
 --- !u!114 &6335059815771653654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8652,12 +8651,6 @@ PrefabInstance:
 --- !u!4 &6101801531573384183 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4179378053120898, guid: a1ff4ad1c15edf34290f004078ae88bd,
-    type: 3}
-  m_PrefabInstance: {fileID: 6098768027176710261}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &6205067341575766421 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198157190901592544, guid: a1ff4ad1c15edf34290f004078ae88bd,
     type: 3}
   m_PrefabInstance: {fileID: 6098768027176710261}
   m_PrefabAsset: {fileID: 0}

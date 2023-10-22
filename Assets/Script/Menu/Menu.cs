@@ -22,14 +22,14 @@ public class Menu : MonoBehaviour
         {
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
-            _gamaManager.Boken();
+           // _gamaManager.Boken();
         }
         else
         {
             Time.timeScale = 1;
             _shop.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
-            _gamaManager.Boken();
+           // _gamaManager.Boken();
         }
     }
 }

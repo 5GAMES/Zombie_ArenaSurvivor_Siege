@@ -35,7 +35,7 @@ public class Target : MonoBehaviour, IDamageable
             {
                 PlayerMotor.Singleton.GetComponent<Wallet>().AddMoney(_gold);
                 ZombieCounter.UpdateStat();
-                NightPool.Despawn(this.gameObject, 2f);
+                Destroy(this.gameObject, 2f);
             }
         }
         await Task.Delay(100);

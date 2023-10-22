@@ -1,4 +1,5 @@
 using System;
+using YG;
 
 public static class ZombieCounter
 {
@@ -7,6 +8,7 @@ public static class ZombieCounter
     public static int Count { get { return ZombieKilled; } }
     public static void UpdateStat()
     {
+        YandexGame.NewLeaderboardScores("ZombieKilled", ZombieKilled++);
         ZombieKilled++;
         OnValueChanged?.Invoke(ZombieKilled);
     }

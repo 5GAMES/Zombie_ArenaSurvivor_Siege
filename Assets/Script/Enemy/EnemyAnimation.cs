@@ -19,15 +19,10 @@ public class EnemyAnimation : MonoBehaviour
             _anim.SetBool("Die", true);
         };
     }
-    public void AttackOn()
+    public void PlayAttackAnimation(bool isAttacking)
     {
-        
-        _anim.SetBool("Attack", true);
-        _anim.SetBool("Run", false);
-    }
-    public void AttackOff()
-    {
-        _anim.SetBool("Attack", false);
-        _anim.SetBool("Run", true);
+        if (_anim != null && _anim.isActiveAndEnabled) _anim.SetBool("Attack", isAttacking);
+
+
     }
 }

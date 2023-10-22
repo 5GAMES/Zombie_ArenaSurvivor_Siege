@@ -30,10 +30,10 @@ public class GamaManager : MonoBehaviour
         _sliderFullScreen.minValue = 0f;
         _sliderFullScreen.maxValue = _timer;
         _sliderFullScreen.value = 0f;
-        if (!_volume.profile.TryGet(out _depthOfField))
-        {
-            Debug.LogError("Depth of Field is not set up in the Volume");
-        }
+        //if (!_volume.profile.TryGet(out _depthOfField))
+        //{
+        //    Debug.LogError("Depth of Field is not set up in the Volume");
+        //}
         StartCoroutine(AdFullScreen());
     }
     private void Update()
@@ -43,11 +43,11 @@ public class GamaManager : MonoBehaviour
     }
     public void ResumeGames() => _menu.PauseGames();
 
-    public void Boken()
-    {
-        if (!_depthOfField.active) _depthOfField.active = true;
-        else _depthOfField.active = false;
-    }
+    //public void Boken()
+    //{
+    //    if (!_depthOfField.active) _depthOfField.active = true;
+    //    else _depthOfField.active = false;
+    //}
     public void AddSdk()
     {
         if (_IsAdplay == true)

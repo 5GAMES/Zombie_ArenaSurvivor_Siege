@@ -32,4 +32,14 @@ public class EnemyMovement : MonoBehaviour
         if (_agent != null)
             _agent.isStopped = false;
     }
+    public void MoveOn()
+    {
+        if (_agent != null)
+            _agent.isStopped = false;
+    }
+    public void MoveOff()
+    {
+        if (_agent != null)
+            _agent.isStopped = true;
+    }
 }

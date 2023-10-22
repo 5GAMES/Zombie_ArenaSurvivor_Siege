@@ -859,7 +859,7 @@ Transform:
   - {fileID: 3674352860480632428}
   - {fileID: 4632464250970316900}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1750634928349913153
 Animator:
@@ -1389,7 +1389,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 53ea3c376bf2111478f9ee518486b692, type: 2}
+  - {fileID: 2100000, guid: d893d84bc6be0b348af0d3199f134c02, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

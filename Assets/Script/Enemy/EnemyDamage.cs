@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -5,29 +6,37 @@ public class EnemyDamage : MonoBehaviour
 {
     [SerializeField] private float _damage = 3f;
     private bool _canDamage = true;
+    private EnemyMovement _enemyMovement;
+    private EnemyAnimation _enemyAnimation;
+
+    private void Start()
+    {
+        _enemyMovement = GetComponent<EnemyMovement>();
+        _enemyAnimation = GetComponent<EnemyAnimation>();
+    }
 
     private void OnCollisionEnter(Collision collision) => CheckPlayer(collision);
     private void OnCollisionStay(Collision collision) =>  CheckPlayer(collision);
-   
+
     private void CheckPlayer(Collision collision)
     {
         if (collision.gameObject.TryGetComponent(out PlayerHealth health))
-        {
-            TryDamage(health);
-            GetComponent<EnemyAnimation>().AttackOn();
-        }
-        else
-        {
-            GetComponent<EnemyAnimation>().AttackOff();
-        }
+           StartCoroutine(DamageDelay(health));
     }
 
-    private async void TryDamage(PlayerHealth health)
+    private IEnumerator DamageDelay(PlayerHealth health)
     {
-        if(!_canDamage) return;
+        if (!_canDamage) yield break;
         _canDamage = false;
+
+        _enemyMovement.MoveOff();
+        _enemyAnimation.PlayAttackAnimation(true);
+
         health.TakeDamage(_damage);
-        await Task.Delay(500);
+        yield return new WaitForSeconds(2.0f); 
+
+        _enemyAnimation.PlayAttackAnimation(false);
+        _enemyMovement.MoveOn();
         _canDamage = true;
     }
 }
