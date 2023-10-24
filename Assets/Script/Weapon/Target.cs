@@ -1,6 +1,8 @@
 using NTC.Pool;
 using System;
+using System.Collections;
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Target : MonoBehaviour, IDamageable
@@ -19,7 +21,8 @@ public class Target : MonoBehaviour, IDamageable
 
     private void Start() => _health = _maxHealth;
 
-    public async void TakeDamage(float damage)
+    
+    public void TakeDamage(float damage)
     {
         if (!_canBeDamaged || _isDead) return;
         _canBeDamaged = false;
@@ -35,10 +38,9 @@ public class Target : MonoBehaviour, IDamageable
             {
                 PlayerMotor.Singleton.GetComponent<Wallet>().AddMoney(_gold);
                 ZombieCounter.UpdateStat();
-                Destroy(this.gameObject, 2f);
+                NightPool.Despawn(this.gameObject, 2f);
             }
         }
-        await Task.Delay(100);
         _canBeDamaged = true;
     }
     public void Initialize()

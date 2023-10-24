@@ -31,7 +31,7 @@ public class EnemyDamage : MonoBehaviour
 
         _enemyMovement.MoveOff();
         _enemyAnimation.PlayAttackAnimation(true);
-
+       
         health.TakeDamage(_damage);
         yield return new WaitForSeconds(2.0f); 
 

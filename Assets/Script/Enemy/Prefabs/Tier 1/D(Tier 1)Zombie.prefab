@@ -2579,7 +2579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 25
-  _gold: 6
+  _gold: 5
 --- !u!114 &7922511778842422186
 MonoBehaviour:
   m_ObjectHideFlags: 0

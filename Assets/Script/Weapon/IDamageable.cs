@@ -1,3 +1,5 @@
+using System.Collections;
+
 public interface IDamageable{
     public float MaxHealth { get;}
     public float Health { get; }

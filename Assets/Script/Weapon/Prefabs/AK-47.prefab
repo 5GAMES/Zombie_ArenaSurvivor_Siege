@@ -5092,6 +5092,7 @@ MonoBehaviour:
   _impactEffect: {fileID: 8557512856403959058}
   _IsShootActive: 0
   weaponParameters: {fileID: 11400000, guid: efdccb59ec334f9468d0fa5f66587cff, type: 2}
+  _audioManager: {fileID: 0}
   _anim: {fileID: 6957186990760280188}
   _IsShoot: 0
 --- !u!95 &6957186990760280188

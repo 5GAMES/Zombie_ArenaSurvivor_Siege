@@ -16,6 +16,6 @@ MonoBehaviour:
   range: 100
   impactForce: 100
   fireRate: 15
-  magazine: 300
-  magazineCapacity: 300
+  magazine: 30
+  magazineCapacity: 30
   _audioclips: 4

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: MP5
   _image: {fileID: 21300024, guid: 5acb27b603af6d44ea6113c4b7b15385, type: 3}
-  _cost: 3500
+  _cost: 350
   _isBuyed: 1
   _weapon: {fileID: 2858379257648599901, guid: 1e488498808a7dd478bd7c31f91c97b3, type: 3}

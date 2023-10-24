@@ -46,7 +46,7 @@ public class EnemyFabrick : MonoBehaviour
         {
             var num = UnityEngine.Random.Range(0, _spawnPoints.Count);
             var point = _spawnPoints[num];
-            var enemy = Instantiate(ChoiseEnemy().gameObject, point.transform.position, Quaternion.identity);
+            var enemy = NightPool.Spawn(ChoiseEnemy().gameObject, point.transform.position, Quaternion.identity);
             enemy.GetComponent<Target>().Initialize();
             enemy.GetComponent<EnemyMovement>().Initialize();
             enemy.GetComponent<Target>().OnDiee += CheckEnemyCount;

@@ -10,6 +10,7 @@ public class GrenadeHandler : MonoBehaviour
     [SerializeField] private int _genadeCout = 2;
     [SerializeField] private int _maxGrenade = 5;
     [SerializeField] TextMeshProUGUI _textCoutGrenade;
+    [SerializeField] private GamaManager _gamaManager;
     public int MaxGrenadeCount { get { return _maxGrenade; } }
     public int CurrentGrenadeCount { get { return _genadeCout; } }
     private bool _onCooldown = false;
@@ -27,11 +28,16 @@ public class GrenadeHandler : MonoBehaviour
             {
                 Throw();
             }
+            else
+            {
+                _gamaManager.Texthelp("Гранаты закончились");
+            }
         }
     }
 
     private async void Throw()
     {
+        _gamaManager.Texthelp("");
         if (_onCooldown) return;
         _genadeCout--;
         _textCoutGrenade.text = _genadeCout.ToString();

@@ -23,6 +23,16 @@ public class ShopCell : MonoBehaviour
         _cost.text = item.Cost.ToString();
         _icon.sprite = item.Image;
         _item = item;
+        if (item.Name == "PM" || item.Name == "TEC-9" )
+        {
+            _icon.transform.localScale = new Vector3(0.7f, 1f, 0.7f);
+        }
+        else if( item.Name == "Grenade")
+        {
+            _icon.transform.localScale = new Vector3(0.5f, 1f, 0.5f);
+        }
+      
+           
     }
     public void Buy()
     {

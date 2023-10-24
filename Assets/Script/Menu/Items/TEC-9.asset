@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: TEC-9
   _image: {fileID: 21300010, guid: 5acb27b603af6d44ea6113c4b7b15385, type: 3}
-  _cost: 750
+  _cost: 100
   _isBuyed: 1
   _weapon: {fileID: 5873791292164177952, guid: 211e3068bbca1c24fa0afbfbe428670f, type: 3}

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,7 +10,8 @@ public class Mate : MonoBehaviour
     private Weapon _weapon;
     private EnemyMovement _target;
     private NavMeshAgent _agent;
-
+    private bool _canShooting;
+    private bool _isMoving = false;
     private void CheckAmmo(int value)
     { if (value == 0) _weapon.Recharge(); }
   
@@ -20,16 +22,22 @@ public class Mate : MonoBehaviour
         _weapon.OnMagazineValueChnaged += CheckAmmo;
         _agent = GetComponent<NavMeshAgent>();
         _agent.updateRotation = false;
+        _canShooting = false;
     }
 
     private void Update()
     {
-        FindTarget();
+            FindTarget();
+ 
+    }
+    private void FixedUpdate()
+    {
         Move();
     }
 
     private void FindTarget()
     {
+        if (_isMoving) return;
         var coliders = Physics.OverlapSphere(transform.position, _findRange);
         foreach (Collider collider in coliders)
         {
@@ -41,9 +49,12 @@ public class Mate : MonoBehaviour
                 float targetAngle = Mathf.Atan2(directionToEnemy.x, directionToEnemy.z) * Mathf.Rad2Deg + 45f;
                 Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
-
-                _weapon.Shoot();
                 OnTargetFounded?.Invoke();
+                if (!_canShooting)
+                {
+                    StartCoroutine(WeaponCoroutin());
+                    return;
+                }
                 break;
             }
             else
@@ -53,6 +64,14 @@ public class Mate : MonoBehaviour
             }
         }
     }
+    private IEnumerator WeaponCoroutin()
+    {
+        _canShooting = true;
+        yield return new WaitForSeconds(0.1f);
+        _canShooting = false;
+        _weapon.Shoot();
+
+    }
 
     private void Move()
     {
@@ -61,10 +80,14 @@ public class Mate : MonoBehaviour
         {
             _agent.destination = transform.position;
             OnStay?.Invoke();
+            _isMoving = false;
             return;
         }
         _agent.destination = PlayerMotor.Singleton.transform.position;
+        _agent.updateRotation = true;
         OnMove?.Invoke();
+        OnTargetLoss?.Invoke();
+        _isMoving = true;
     }
 
     private void OnDrawGizmosSelected()

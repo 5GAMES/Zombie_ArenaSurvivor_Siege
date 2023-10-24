@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Grenade
   _image: {fileID: 21300020, guid: a1d46cd3f2614cc43be92ab44ea7d819, type: 3}
-  _cost: 50
-  _isBuyed: 1
+  _cost: 20
+  _isBuyed: 0

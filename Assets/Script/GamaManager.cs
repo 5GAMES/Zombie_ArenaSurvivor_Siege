@@ -9,10 +9,11 @@ using YG;
 
 public class GamaManager : MonoBehaviour
 {
+    [Header("UI")]
+    [SerializeField] private TextMeshProUGUI _texthelp;
     [SerializeField] private Menu _menu;
     [SerializeField] private Volume _volume;
     [SerializeField] private DepthOfField _depthOfField;
-    [SerializeField] private ShopItem _shopItem;
     [Header("ADD")]
     [SerializeField] private Slider _sliderFullScreen;
     [SerializeField] private YandexGame _sdk;
@@ -27,6 +28,7 @@ public class GamaManager : MonoBehaviour
     public Image Icones;
     void Start()
     {
+        
         _sliderFullScreen.minValue = 0f;
         _sliderFullScreen.maxValue = _timer;
         _sliderFullScreen.value = 0f;
@@ -43,11 +45,11 @@ public class GamaManager : MonoBehaviour
     }
     public void ResumeGames() => _menu.PauseGames();
 
-    //public void Boken()
-    //{
-    //    if (!_depthOfField.active) _depthOfField.active = true;
-    //    else _depthOfField.active = false;
-    //}
+    public void Boken()
+    {
+        if (!_depthOfField.active) _depthOfField.active = true;
+        else _depthOfField.active = false;
+    }
     public void AddSdk()
     {
         if (_IsAdplay == true)
@@ -67,6 +69,11 @@ public class GamaManager : MonoBehaviour
 
             }
         }
+    }
+    public void Texthelp(string message)
+    {
+        _texthelp.text = message.ToString();
+       
     }
     public void FullcreenShow()
     {

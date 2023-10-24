@@ -7430,7 +7430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.93700004, y: 0.035}
   m_AnchorMax: {x: 1, y: 0.075}
-  m_AnchoredPosition: {x: 12.972504, y: 0}
+  m_AnchoredPosition: {x: 12.972473, y: 0}
   m_SizeDelta: {x: 99.9518, y: 19.0471}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &871844777
@@ -9874,10 +9874,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73961daeb7eccf44a8840b4170eba313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _texthelp: {fileID: 0}
   _menu: {fileID: 1071610965}
   _volume: {fileID: 552192441}
   _depthOfField: {fileID: 0}
-  _shopItem: {fileID: 0}
   _sliderFullScreen: {fileID: 1160826414}
   _sdk: {fileID: 1689375024}
   _IsAdplay: 0
@@ -14095,6 +14095,7 @@ MonoBehaviour:
   _genadeCout: 1
   _maxGrenade: 5
   _textCoutGrenade: {fileID: 1967944779}
+  _gamaManager: {fileID: 0}
 --- !u!114 &1712160430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14165,6 +14166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _money: 0
+  _save: {fileID: 0}
 --- !u!114 &1712160435
 MonoBehaviour:
   m_ObjectHideFlags: 0

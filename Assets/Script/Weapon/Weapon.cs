@@ -20,13 +20,15 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject _impactEffect;
     [SerializeField] private bool _IsShootActive;
     [SerializeField] private WeaponParametersSO weaponParameters;
+    [SerializeField] private AudioManager _audioManager;
+    [SerializeField] private Mate _mate;
+    [SerializeField] private GamaManager _gamaManager;
     private int _capacitmagazina;
     public Animator _anim;
     public bool _IsShoot;   
     private bool _singleFireMode = true;  
     private float nextTimeToFire = 0f;
     private bool _IsRecharge;
-    private bool _IsBloom;
     public GameObject BulletInstancer { get { return _hit; } set { _hit = value; } }
     public int MagazinValue { get { return _magazine; } }
 
@@ -37,7 +39,9 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
-        
+        _gamaManager = FindObjectOfType<GamaManager>();
+        _mate = GetComponentInParent<Mate>();
+        _audioManager = FindObjectOfType<AudioManager>();
         _damage = weaponParameters.damage;
         _range = weaponParameters.range;
         _impactForce = weaponParameters.impactForce;
@@ -49,7 +53,6 @@ public class Weapon : MonoBehaviour
         _IsShoot = true;
         _IsShootActive = true;
         _IsRecharge = false;
-        _IsBloom = false;
     }
 
     private void Update()
@@ -72,7 +75,7 @@ public class Weapon : MonoBehaviour
     {
         if (_singleFireMode) 
         {
-            if (Input.GetButtonDown("Fire1") && _magazine > 0)
+            if (Input.GetButtonDown("Fire1") && _magazine > 0 && _mate == null) 
             {
                 nextTimeToFire = Time.time + 1f / _fireRate;
                
@@ -80,15 +83,16 @@ public class Weapon : MonoBehaviour
             }
             if (_magazine <= 0)
             {
+                _gamaManager.Texthelp("Нажми К для перезарядке");
             }
         }
         else
         {
-            if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+            if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && _mate == null)
             {
                 if (_magazine <= 0)
                 {
-
+                    _gamaManager.Texthelp("Нажми К для перезарядке");
                 }
                 else
                 {
@@ -108,37 +112,37 @@ public class Weapon : MonoBehaviour
         }
     }
     private void AudioShoot()
-    { 
-        //if(_audioClips == 0)
-        //{
-        //    _audioManager.PlaySound(3);
-        //}
-        //else if(_audioClips == 1)
-        //{
-        //    _audioManager.PlaySound(4);
-        //}
-        //else if (_audioClips == 2)
-        //{
-        //    _audioManager.PlaySound(5);
-        //}
-        //else if (_audioClips == 3)
-        //{
-        //    _audioManager.PlaySound(6);
-        //}
-        //else if (_audioClips == 4)
-        //{
-        //    _audioManager.PlaySound(7);
-        //}
-        //else if (_audioClips == 5)
-        //{
-        //    _audioManager.PlaySound(8);
-        //}
-        //else if (_audioClips == 6)
-        //{
-        //    _audioManager.PlaySound(9);
-        //}
-        
-        
+    {
+        if (_audioClips == 0)
+        {
+            _audioManager.PlaySound(3);
+        }
+        else if (_audioClips == 1)
+        {
+            _audioManager.PlaySound(4);
+        }
+        else if (_audioClips == 2)
+        {
+            _audioManager.PlaySound(5);
+        }
+        else if (_audioClips == 3)
+        {
+            _audioManager.PlaySound(6);
+        }
+        else if (_audioClips == 4)
+        {
+            _audioManager.PlaySound(7);
+        }
+        else if (_audioClips == 5)
+        {
+            _audioManager.PlaySound(8);
+        }
+        else if (_audioClips == 6)
+        {
+            _audioManager.PlaySound(9);
+        }
+
+
     }
     public void Shoot()
     {
@@ -171,6 +175,7 @@ public class Weapon : MonoBehaviour
 
     public void Recharge()
     {
+        _gamaManager.Texthelp("");
         _IsRecharge = true;
 
         _anim.SetBool("NoAmmo", true);
