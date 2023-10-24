@@ -7251,7 +7251,7 @@ Transform:
   - {fileID: 4373297288046011489}
   - {fileID: 4879013128740476211}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0.188, z: 0}
 --- !u!95 &4954295372970334919
 Animator:
@@ -7404,7 +7404,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8124,6 +8124,12 @@ PrefabInstance:
       propertyPath: _impactEffect
       value: 
       objectReference: {fileID: 2137200122748067823}
+    - target: {fileID: 2270829778339344282, guid: e86e1a0399867f54e96cb23c1c1967bf,
+        type: 3}
+      propertyPath: weaponParameters
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e648ba308ffbff4d8828f4fb3c52a41,
+        type: 2}
     - target: {fileID: 3311248327902060844, guid: e86e1a0399867f54e96cb23c1c1967bf,
         type: 3}
       propertyPath: m_RootOrder

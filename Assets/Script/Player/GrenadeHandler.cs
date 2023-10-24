@@ -30,14 +30,13 @@ public class GrenadeHandler : MonoBehaviour
             }
             else
             {
-                _gamaManager.Texthelp("Гранаты закончились");
+                StartCoroutine(_gamaManager.Texthelp("Гранаты закончились"));
             }
         }
     }
 
     private async void Throw()
     {
-        _gamaManager.Texthelp("");
         if (_onCooldown) return;
         _genadeCout--;
         _textCoutGrenade.text = _genadeCout.ToString();

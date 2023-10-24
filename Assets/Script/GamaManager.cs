@@ -14,6 +14,7 @@ public class GamaManager : MonoBehaviour
     [SerializeField] private Menu _menu;
     [SerializeField] private Volume _volume;
     [SerializeField] private DepthOfField _depthOfField;
+    [SerializeField] private TextMeshProUGUI [] _textExplanations;
     [Header("ADD")]
     [SerializeField] private Slider _sliderFullScreen;
     [SerializeField] private YandexGame _sdk;
@@ -26,22 +27,39 @@ public class GamaManager : MonoBehaviour
     [Header("Authentication")]
     [SerializeField] private GameObject _authentication;
     public Image Icones;
+
+    private bool _startGames;
     void Start()
     {
-        
         _sliderFullScreen.minValue = 0f;
         _sliderFullScreen.maxValue = _timer;
         _sliderFullScreen.value = 0f;
-        //if (!_volume.profile.TryGet(out _depthOfField))
-        //{
-        //    Debug.LogError("Depth of Field is not set up in the Volume");
-        //}
+        if (!_volume.profile.TryGet(out _depthOfField))
+        {
+            Debug.LogError("Depth of Field is not set up in the Volume");
+        }
         StartCoroutine(AdFullScreen());
+
+        if(!_startGames)
+        {
+            Time.timeScale = 0f;
+            _textExplanations[10].text = "Нажмите ПРОБЕЛ, чтобы продолжить";
+            InvokeRepeating("DestoryExplanations", 1f, 0.1f);    
+        }
     }
     private void Update()
     {
-       
         AddSdk();
+        if (_textExplanations != null)
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                DestoryExplanations();
+                Time.timeScale = 1f;
+            }
+           
+            
+        
+       
     }
     public void ResumeGames() => _menu.PauseGames();
 
@@ -52,6 +70,7 @@ public class GamaManager : MonoBehaviour
     }
     public void AddSdk()
     {
+       
         if (_IsAdplay == true)
         {
             int roundedTimer = Mathf.FloorToInt(_timer);
@@ -70,9 +89,11 @@ public class GamaManager : MonoBehaviour
             }
         }
     }
-    public void Texthelp(string message)
+    public IEnumerator Texthelp(string message)
     {
         _texthelp.text = message.ToString();
+        yield return new WaitForSeconds(3.0f);
+        _texthelp.text = "";
        
     }
     public void FullcreenShow()
@@ -98,5 +119,18 @@ public class GamaManager : MonoBehaviour
     public void AddMoneySdk()
     {
         _sdk._RewardedShow(1);
+    }
+    private void DestoryExplanations()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            foreach (var item in _textExplanations)
+            {
+                Destroy(item.gameObject);
+            }
+            Time.timeScale = 1f;
+            _startGames = true;
+        }
+        
     }
 }

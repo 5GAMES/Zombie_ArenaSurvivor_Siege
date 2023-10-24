@@ -18,18 +18,22 @@ public class EnemyFabrick : MonoBehaviour
     [SerializeField] private List<EnemyMovement> _first, _second, _thrid, _four, _five;
     [SerializeField] private List<GameObject> _spawnPoints;
     [Header("Values : ")]
-    [SerializeField, Range(1, 7)] private int _enemyPerSpawn;
+    [SerializeField, Range(0, 7)] private int _enemyPerSpawn;
     [SerializeField] private int _additionalEnemy;
     [SerializeField, Range(1, 50)] private int _timeToNextWave;
     private int _wave = 0, _tier = 0;
     [SerializeField]private List<Target> _spawndZombi = new();
 
+    [SerializeField] private PlayerHealth _health;
+
     private void Start()
     {
+
         _textWave.text = _wave.ToString();
         _sliderWaveCout.minValue = 0;
         _sliderWaveCout.maxValue = _timeToNextWave;
         StartLevel();
+       
         
     }
     private void Update()
@@ -66,7 +70,7 @@ public class EnemyFabrick : MonoBehaviour
 
     private IEnumerator StartNewWave()
     {
-        
+        _health.TakeHeal(100);
         _wave++;
         _textWave.text = _wave.ToString();
         int time = _timeToNextWave;

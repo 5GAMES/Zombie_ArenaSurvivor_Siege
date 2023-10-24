@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using YG;
 
 public class UIEnemyDieCounter : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class UIEnemyDieCounter : MonoBehaviour
         ZombieCounter.OnValueChanged += Render;
        // Render(ZombieCounter.ZombieKilled);
     }
+ 
     private void OnDestroy() => ZombieCounter.OnValueChanged -= Render;
-    private void Render(int value) => _counterField.text = value.ToString();
+    public void Render(int value)
+    {
+        _counterField.text = value.ToString();
+        
+    }
+        
 }
