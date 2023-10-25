@@ -4,9 +4,8 @@ using UnityEngine.Serialization;
 using UnityToolbag;
 using YG.Utils.LB;
 using YG.Utils.Pay;
-#if YG_TEXT_MESH_PRO
 using TMPro;
-#endif
+
 
 namespace YG
 {
@@ -254,7 +253,7 @@ namespace YG
             Tooltip("Здесь вы можете выбрать одельные шрифты для каждого языка.")]
         public Fonts fonts;
 
-#if YG_TEXT_MESH_PRO
+
         [Serializable]
         public class FontsTMP
         {
@@ -291,7 +290,7 @@ namespace YG
         [ConditionallyVisible(nameof(LocalizationEnable)),
             Tooltip("Здесь вы можете выбрать одельные шрифты TextMeshPro для каждого языка.")]
         public FontsTMP fontsTMP;
-#endif
+
 
         [Serializable]
         public class FontsSizeCorrect

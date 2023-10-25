@@ -1,9 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-#if YG_TEXT_MESH_PRO
 using TMPro;
-#endif
 
 namespace YG
 {
@@ -14,21 +12,21 @@ namespace YG
         public MonoBehaviour[] topPlayerActivityComponents = new MonoBehaviour[0];
         public MonoBehaviour[] thisPlayerActivityComponents = new MonoBehaviour[0];
 
-        [Serializable]
-        public struct TextLegasy
-        {
-            public Text rank, name, score;
-        }
-        public TextLegasy textLegasy;
+        //[Serializable]
+        //public struct TextLegasy
+        //{
+        //    public Text rank, name, score;
+        //}
+        //public TextLegasy textLegasy;
 
-#if YG_TEXT_MESH_PRO
+
         [Serializable]
         public struct TextMP
         {
             public TextMeshProUGUI rank, name, score;
         }
         public TextMP textMP;
-#endif
+
 
         public class Data
         {
@@ -48,15 +46,15 @@ namespace YG
         [ContextMenu(nameof(UpdateEntries))]
         public void UpdateEntries()
         {
-            if (textLegasy.rank) textLegasy.rank.text = data.rank.ToString();
-            if (textLegasy.name) textLegasy.name.text = data.name;
-            if (textLegasy.score) textLegasy.score.text = data.score.ToString();
+            //if (textLegasy.rank) textLegasy.rank.text = data.rank.ToString();
+            //if (textLegasy.name) textLegasy.name.text = data.name;
+            //if (textLegasy.score) textLegasy.score.text = data.score.ToString();
 
-#if YG_TEXT_MESH_PRO
+
             if (textMP.rank) textMP.rank.text = data.rank.ToString();
             if (textMP.name) textMP.name.text = data.name;
             if (textMP.score) textMP.score.text = data.score.ToString();
-#endif
+
             if (imageLoad)
             {
                 if (data.photoSprite)

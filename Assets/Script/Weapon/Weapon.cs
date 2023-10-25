@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float _range = 100f;
     [SerializeField] private float _impactForce = 30f;
     [SerializeField] private float _fireRate = 15f;
-    [SerializeField] int _magazine = 30;
+    [SerializeField] int _magazine = 0;
     [SerializeField] float _audioClips;
     [Header("Links")]
     [SerializeField] GameObject _bloomEffect;
@@ -57,7 +57,7 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {  
-        if (_IsShootActive == true)
+        if (_IsShootActive == true && Time.timeScale == 1)
         {
             HardShoot();
         }

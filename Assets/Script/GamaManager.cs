@@ -29,6 +29,7 @@ public class GamaManager : MonoBehaviour
     public Image Icones;
 
     private bool _startGames;
+    private bool IsStopSpace;
     void Start()
     {
         _sliderFullScreen.minValue = 0f;
@@ -50,11 +51,12 @@ public class GamaManager : MonoBehaviour
     private void Update()
     {
         AddSdk();
-        if (_textExplanations != null)
+        if (!IsStopSpace)
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 DestoryExplanations();
                 Time.timeScale = 1f;
+                IsStopSpace = true;
             }
            
             
