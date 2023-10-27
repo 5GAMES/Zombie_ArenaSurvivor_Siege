@@ -1,2 +1,2 @@
-Build path: F:/Unity_Games/ZBuild_Games/NextDayZombiePolygon/0.66
-Build number: 67
+Build path: F:/Unity_Games/ZBuild_Games/NextDayZombiePolygon/0.68
+Build number: 76

@@ -33,9 +33,16 @@ public class GamaManager : MonoBehaviour
     public Image Icones;
   
 
-    public bool IsStartGame;
-    void Start()
+    public int IsFirstGame;
+
+    public void ResumeGames() => _menu.PauseGames();
+    public void AddMoneySdk() => _sdk._RewardedShow(1);
+    public void FullcreenShow() => _sdk._FullscreenShow();
+    public void NoAuthentication() => StartCoroutine(NoAuthenticationCoroutine());
+    private void OnApplicationQuit() => _saverTest.Save();
+    private IEnumerator Start()
     {
+        yield return new WaitForSeconds(0.3f);
         _sliderFullScreen.minValue = 0f;
         _sliderFullScreen.maxValue = _timer;
         _sliderFullScreen.value = 0f;
@@ -43,12 +50,12 @@ public class GamaManager : MonoBehaviour
         {
             Debug.LogError("Depth of Field is not set up in the Volume");
         }
-
-        if (IsStartGame == true)
+        print(IsFirstGame);
+        if (IsFirstGame == 2)
         {
             DestoryExplanationsAdd();
         }
-        else if (IsStartGame == false)
+        if (IsFirstGame == 0)
         {
             Time.timeScale = 0f;
             _textExplanations[10].text = "Нажмите ПРОБЕЛ, чтобы продолжить";
@@ -58,14 +65,8 @@ public class GamaManager : MonoBehaviour
     private void Update()
     {
         AddSdk();
-        if (IsStartGame == false)
-        {
-           DestoryExplanations();
-        }
-
+        DestoryExplanations();
     }
-    public void ResumeGames() => _menu.PauseGames();
-
     public void Boken()
     {
         if (!_depthOfField.active) _depthOfField.active = true;
@@ -99,53 +100,34 @@ public class GamaManager : MonoBehaviour
         _texthelp.text = "";
        
     }
-    public void FullcreenShow()
-    {
-        _sdk._FullscreenShow();
-    }
     private IEnumerator AdFullScreen()
     {
         yield return new WaitForSeconds(60f);
         _IsAdplay = true;
         _fullsceenAd.SetActive(true);
     }
-    public void NoAuthentication()
-    {
-        StartCoroutine(NoAuthenticationCoroutine());
-    }
     private IEnumerator NoAuthenticationCoroutine()
     {
         _authentication.SetActive(true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         _authentication.SetActive(false);
-    }
-    public void AddMoneySdk()
-    {
-        _sdk._RewardedShow(1);
     }
     private void DestoryExplanations()
     {
-       if(Input.GetKeyDown(KeyCode.Space))
-        {
-            foreach (var item in _textExplanations)
-            {
-                Destroy(item.gameObject);
-            }
-            Time.timeScale = 1f;
-            IsStartGame = true;
-        }
-            
+       if(Input.GetKeyDown(KeyCode.Space) && IsFirstGame == 0)
+       {
+            DestoryExplanationsAdd();
+            IsFirstGame = 2;
+       }
     }
     private void DestoryExplanationsAdd()
     {
         foreach (var item in _textExplanations)
         {
-            Destroy(item.gameObject);
+            print(item.name);
+            if (item.gameObject != null) Destroy(item.gameObject);      
         }
         Time.timeScale = 1f;
-    }
-    private void OnApplicationQuit()
-    {
-        _saverTest.Save();
-    }
+    }   
+
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using YG.Example;
@@ -12,11 +13,12 @@ public class Wallet : MonoBehaviour
     public int Money { get { return _money; } set { _money = value; } }
 
     private void OnDestroy() => _save.Cash = _money;
-    private void Start()
+    private IEnumerator Start()
     {
         ZombieCounter.Saver = _save;
         ZombieCounter.SetStat(_save.KilledZombie);
         _money = _save.Cash;
+        yield return new WaitForSeconds(1f);
         OnValueChanged?.Invoke(_money);
     }
 

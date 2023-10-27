@@ -15,5 +15,5 @@ MonoBehaviour:
   _name: PM
   _image: {fileID: 21300004, guid: 5acb27b603af6d44ea6113c4b7b15385, type: 3}
   _cost: 0
-  _isBuyed: 1
+  _isBuyed: 0
   _weapon: {fileID: 2082781503154870795, guid: 2a50de9917cacdb47913608505d6c7d3, type: 3}

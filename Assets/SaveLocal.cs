@@ -13,7 +13,11 @@ public class SaveLocal : MonoBehaviour
 
     private void OnDisable() => YandexGame.GetDataEvent += GetLoad;
 
-
+    private IEnumerator Start()
+    {
+        yield return new WaitForSeconds(0.1f);
+        
+    }
     private void Awake()
     {
 
@@ -22,36 +26,40 @@ public class SaveLocal : MonoBehaviour
     }
     public void GetLoad()
     {
-       // for (int i = 0; i < _shop.Item.Count; i++)
-       // {
-            //var weapon = (IShopItem)_shop.Item[i];
-            //weapon.IsBuyed = YandexGame.savesData.Weapon[i];
+        
+        for (int i = 0; i < _shop.Item.Count; i++)
+        {
+            if (YandexGame.savesData.Weapon.Count == 0) break;
+            var weapon = (IShopItem)_shop.Item[i];
+            print(weapon);
+            weapon.IsBuyed = YandexGame.savesData.Weapon[i];
+            
 
-       // }
+        }
+        _gameManager.IsFirstGame = YandexGame.savesData.IsStartGame;
         _wallet.Money = YandexGame.savesData.Money;
         _playerLook.xSensitivity = YandexGame.savesData.SensitivitySlider;
         _playerLook.UpdateSensitivity(_playerLook.xSensitivity);
         ZombieCounter.SetStat(YandexGame.savesData.ZombieCount);
-        _gameManager.IsStartGame = YandexGame.savesData.IsStartGame;
-        print("Load Wallet:" + _wallet.Money);
-        print("Load Cout" + YandexGame.savesData.ZombieCount);
-        print("Load Sen" + _playerLook.xSensitivity);
+        print(YandexGame.savesData.IsStartGame);
     }
-    public void Load() => YandexGame.LoadCloud();
+    public void Load() => YandexGame.LoadLocal();
     public void Save()
     {
         YandexGame.savesData.SensitivitySlider = _playerLook.xSensitivity;
         YandexGame.savesData.Money = _wallet.Money;
         YandexGame.savesData.ZombieCount = ZombieCounter.ZombieKilled;
-        YandexGame.savesData.IsStartGame = _gameManager.IsStartGame;
-        _shop.Item.Clear();
-        //for (int i = 0; i < _shop.Item.Count; i++)
-       // {
-         //   var weapon = (IShopItem)_shop.Item[i];
-           //YandexGame.savesData.Weapon[i] = weapon.IsBuyed;
-       // }
-        print("Save wallet" + _wallet.Money);
-        print("Save cout" + ZombieCounter.ZombieKilled);
-        YandexGame.SaveCloud();
+        YandexGame.savesData.IsStartGame = _gameManager.IsFirstGame;
+        print(YandexGame.savesData.IsStartGame);
+        var weapon = _shop.Item;
+        List<bool> www = new();
+        for (int i = 0; i < _shop.Item.Count; i++)
+        {
+            var ddf = (IShopItem)weapon[i];
+            www.Add(ddf.IsBuyed);
+            
+        }
+        YandexGame.savesData.Weapon = new List<bool>(www);
+        YandexGame.SaveLocal();
     }
 }

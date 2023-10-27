@@ -83,7 +83,7 @@ public class Weapon : MonoBehaviour
             }
             if (_magazine <= 0)
             {
-                StartCoroutine(_gamaManager.Texthelp("Нажми К для перезарядке"));
+                StartCoroutine(_gamaManager.Texthelp("Нажми К для перезарядки"));
             }
         }
         else
@@ -92,7 +92,7 @@ public class Weapon : MonoBehaviour
             {
                 if (_magazine <= 0)
                 {
-                    StartCoroutine(_gamaManager.Texthelp("Нажми К для перезарядке"));
+                    StartCoroutine(_gamaManager.Texthelp("Нажми К для перезарядки"));
                 }
                 else
                 {

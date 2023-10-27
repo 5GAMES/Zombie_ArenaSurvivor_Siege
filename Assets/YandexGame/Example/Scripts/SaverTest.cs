@@ -33,7 +33,7 @@ namespace YG.Example
             _playerLook.xSensitivity = YandexGame.savesData.SensitivitySlider;
             _playerLook.UpdateSensitivity(_playerLook.xSensitivity);
             ZombieCounter.SetStat(YandexGame.savesData.ZombieCount);
-            _gameManager.IsStartGame = YandexGame.savesData.IsStartGame;
+            _gameManager.IsFirstGame = YandexGame.savesData.IsStartGame;
             print("Load" + _wallet.Money);
             print("Load" + ZombieCounter.ZombieKilled);
             print("Load" + _playerLook.xSensitivity);
@@ -44,7 +44,7 @@ namespace YG.Example
             YandexGame.savesData.SensitivitySlider = _playerLook.xSensitivity;
             YandexGame.savesData.Money = _wallet.Money;
             YandexGame.savesData.ZombieCount = ZombieCounter.ZombieKilled;
-            YandexGame.savesData.IsStartGame = _gameManager.IsStartGame;
+            YandexGame.savesData.IsStartGame = _gameManager.IsFirstGame;
             _shop.Item.Clear();
             for (int i = 0; i < _shop.Item.Count; i++)
             {

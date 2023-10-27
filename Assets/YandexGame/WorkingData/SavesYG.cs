@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace YG
 {
     [System.Serializable]
@@ -20,8 +22,8 @@ namespace YG
         public int Money = 0;
         public int ZombieCount = 0;
         public float SensitivitySlider = 10f;
-        public bool []Weapon;
-        public bool IsStartGame;
+        public List <bool> Weapon = new();
+        public int IsStartGame;
 
         // Вы можете выполнить какие то действия при загрузке сохранений
         public SavesYG()

@@ -15,5 +15,5 @@ MonoBehaviour:
   _name: "\u041D\u0410\u0413\u0418\u0411\u0410\u0422\u041E\u0420"
   _image: {fileID: 21300044, guid: 5acb27b603af6d44ea6113c4b7b15385, type: 3}
   _cost: 12500
-  _isBuyed: 1
+  _isBuyed: 0
   _weapon: {fileID: 7489686984377146253, guid: a141fd1e09307be41849af5fb90bbe1c, type: 3}

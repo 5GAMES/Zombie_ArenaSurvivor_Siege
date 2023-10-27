@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using YG;
 
 public class LevelConrtoller : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class LevelConrtoller : MonoBehaviour
     }
     public void RestartLevel()
     {
+        for (int i = 0; i < YandexGame.savesData.Weapon.Count; i++)
+        {
+            if (i == 0) YandexGame.savesData.Weapon[i] = true;
+            else YandexGame.savesData.Weapon[i] = false;
+        }
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
