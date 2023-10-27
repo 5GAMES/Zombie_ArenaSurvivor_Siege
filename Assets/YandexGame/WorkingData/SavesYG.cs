@@ -12,16 +12,16 @@ namespace YG
 
         // Тестовые сохранения для демо сцены
         // Можно удалить этот код, но тогда удалите и демо (папка Example)
-        public int money = 1;                       // Можно задать полям значения по умолчанию
+                       // Можно задать полям значения по умолчанию
         public string newPlayerName = "Hello!";
         public bool[] openLevels = new bool[3];
 
         // Ваши сохранения
-
-        // ...
-
-        // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
-
+        public int Money = 0;
+        public int ZombieCount = 0;
+        public float SensitivitySlider = 10f;
+        public bool []Weapon;
+        public bool IsStartGame;
 
         // Вы можете выполнить какие то действия при загрузке сохранений
         public SavesYG()

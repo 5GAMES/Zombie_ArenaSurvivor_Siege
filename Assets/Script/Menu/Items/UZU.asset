@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: UZU
   _image: {fileID: 21300016, guid: 5acb27b603af6d44ea6113c4b7b15385, type: 3}
-  _cost: 200
-  _isBuyed: 1
+  _cost: 800
+  _isBuyed: 0
   _weapon: {fileID: 8477025324680566835, guid: ec8c367ce43a17341b4e3110a61faae7, type: 3}

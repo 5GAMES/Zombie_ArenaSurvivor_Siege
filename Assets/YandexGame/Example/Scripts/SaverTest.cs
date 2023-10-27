@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,47 +6,54 @@ namespace YG.Example
 {
     public class SaverTest : MonoBehaviour
     {
-        [SerializeField] InputField integerText;
-        [SerializeField] InputField stringifyText;
-        [SerializeField] Text systemSavesText;
-        [SerializeField] Toggle[] booleanArrayToggle;
-
+        [SerializeField] private GamaManager _gameManager;
+        [SerializeField] private Wallet _wallet;
+        [SerializeField] private PlayerLook _playerLook;
+        [SerializeField] private Shop _shop;
         private void OnEnable() => YandexGame.GetDataEvent += GetLoad;
-        private void OnDisable() => YandexGame.GetDataEvent -= GetLoad;
+
+        private void OnDisable() => YandexGame.GetDataEvent += GetLoad;
+
 
         private void Awake()
         {
+
             if (YandexGame.SDKEnabled)
                 GetLoad();
         }
-
-        public void Save()
-        {
-            YandexGame.savesData.money = int.Parse(integerText.text);
-            YandexGame.savesData.newPlayerName = stringifyText.text.ToString();
-
-            for (int i = 0; i < booleanArrayToggle.Length; i++)
-                YandexGame.savesData.openLevels[i] = booleanArrayToggle[i].isOn;
-
-            YandexGame.SaveProgress();
-        }
-
-        public void Load() => YandexGame.LoadProgress();
-
         public void GetLoad()
         {
-            integerText.text = string.Empty;
-            stringifyText.text = string.Empty;
+            for (int i = 0; i < _shop.Item.Count; i++)
+            {
+              var weapon = (IShopItem)_shop.Item[i];
+              weapon.IsBuyed = YandexGame.savesData.Weapon[i];
 
-            integerText.placeholder.GetComponent<Text>().text = YandexGame.savesData.money.ToString();
-            stringifyText.placeholder.GetComponent<Text>().text = YandexGame.savesData.newPlayerName;
-
-            for (int i = 0; i < booleanArrayToggle.Length; i++)
-                booleanArrayToggle[i].isOn = YandexGame.savesData.openLevels[i];
-
-            systemSavesText.text = $"Language - {YandexGame.savesData.language}\n" +
-            $"First Session - {YandexGame.savesData.isFirstSession}\n" +
-            $"Prompt Done - {YandexGame.savesData.promptDone}\n";
+            }
+            _wallet.Money = YandexGame.savesData.Money;
+            _playerLook.xSensitivity = YandexGame.savesData.SensitivitySlider;
+            _playerLook.UpdateSensitivity(_playerLook.xSensitivity);
+            ZombieCounter.SetStat(YandexGame.savesData.ZombieCount);
+            _gameManager.IsStartGame = YandexGame.savesData.IsStartGame;
+            print("Load" + _wallet.Money);
+            print("Load" + ZombieCounter.ZombieKilled);
+            print("Load" + _playerLook.xSensitivity);
+        }
+        public void Load() => YandexGame.LoadLocal();
+        public void Save()
+        {
+            YandexGame.savesData.SensitivitySlider = _playerLook.xSensitivity;
+            YandexGame.savesData.Money = _wallet.Money;
+            YandexGame.savesData.ZombieCount = ZombieCounter.ZombieKilled;
+            YandexGame.savesData.IsStartGame = _gameManager.IsStartGame;
+            _shop.Item.Clear();
+            for (int i = 0; i < _shop.Item.Count; i++)
+            {
+                var weapon = (IShopItem)_shop.Item[i];
+                YandexGame.savesData.Weapon[i] = weapon.IsBuyed;
+            }
+            print("Save" + _wallet.Money);
+            print("Save" + ZombieCounter.ZombieKilled);
+            YandexGame.SaveCloud();
         }
     }
 }

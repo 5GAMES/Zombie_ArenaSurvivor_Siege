@@ -17,13 +17,13 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   gaussianStart:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 10
   gaussianEnd:
-    m_OverrideState: 0
-    m_Value: 30
+    m_OverrideState: 1
+    m_Value: 50
   gaussianMaxRadius:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   highQualitySampling:
     m_OverrideState: 0
@@ -185,13 +185,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   postExposure:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   contrast:
     m_OverrideState: 0
     m_Value: 0
   colorFilter:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   hueShift:
     m_OverrideState: 0
@@ -486,7 +486,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 0
   tint:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
 --- !u!114 &8255499356749456724
 MonoBehaviour:

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: AK-47
   _image: {fileID: 21300044, guid: 5acb27b603af6d44ea6113c4b7b15385, type: 3}
-  _cost: 600
+  _cost: 2400
   _isBuyed: 1
   _weapon: {fileID: 7489686984377146253, guid: cd9d9d68b90344b44b96c4369ad1530e, type: 3}

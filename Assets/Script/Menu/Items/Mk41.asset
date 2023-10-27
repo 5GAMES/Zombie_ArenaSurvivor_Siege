@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: M1A4F
   _image: {fileID: 21300046, guid: 5acb27b603af6d44ea6113c4b7b15385, type: 3}
-  _cost: 750
+  _cost: 3200
   _isBuyed: 1
   _weapon: {fileID: 3718725114448914685, guid: 31ab5db138c76dd4886d65d56d96cfc2, type: 3}

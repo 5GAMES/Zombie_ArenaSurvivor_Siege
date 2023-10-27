@@ -4677,7 +4677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 35
-  _gold: 10
+  _gold: 35
 --- !u!114 &2579773547416135656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4702,7 +4702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d71a57162e07b4abdf935ac25df451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 5
+  _damage: 10
 --- !u!1 &4523854197005394869
 GameObject:
   m_ObjectHideFlags: 0

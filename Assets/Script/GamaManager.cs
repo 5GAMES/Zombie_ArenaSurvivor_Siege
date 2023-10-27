@@ -2,10 +2,13 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using YG;
+using YG.Example;
 
 public class GamaManager : MonoBehaviour
 {
@@ -18,7 +21,6 @@ public class GamaManager : MonoBehaviour
     [Header("ADD")]
     [SerializeField] private Slider _sliderFullScreen;
     [SerializeField] private YandexGame _sdk;
-    private float _time = 1f;
     private float _timer = 10f;
     [SerializeField] bool _IsAdplay;
     [SerializeField] private TextMeshProUGUI _textad;
@@ -26,10 +28,12 @@ public class GamaManager : MonoBehaviour
 
     [Header("Authentication")]
     [SerializeField] private GameObject _authentication;
+    [SerializeField] private Save _gameData;
+    [SerializeField] private SaveLocal _saverTest;
     public Image Icones;
+  
 
-    private bool _startGames;
-    private bool IsStopSpace;
+    public bool IsStartGame;
     void Start()
     {
         _sliderFullScreen.minValue = 0f;
@@ -39,29 +43,26 @@ public class GamaManager : MonoBehaviour
         {
             Debug.LogError("Depth of Field is not set up in the Volume");
         }
-        StartCoroutine(AdFullScreen());
 
-        if(!_startGames)
+        if (IsStartGame == true)
+        {
+            DestoryExplanationsAdd();
+        }
+        else if (IsStartGame == false)
         {
             Time.timeScale = 0f;
             _textExplanations[10].text = "Нажмите ПРОБЕЛ, чтобы продолжить";
-            InvokeRepeating("DestoryExplanations", 1f, 0.1f);    
         }
+        StartCoroutine(AdFullScreen());
     }
     private void Update()
     {
         AddSdk();
-        if (!IsStopSpace)
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                DestoryExplanations();
-                Time.timeScale = 1f;
-                IsStopSpace = true;
-            }
-           
-            
-        
-       
+        if (IsStartGame == false)
+        {
+           DestoryExplanations();
+        }
+
     }
     public void ResumeGames() => _menu.PauseGames();
 
@@ -94,7 +95,7 @@ public class GamaManager : MonoBehaviour
     public IEnumerator Texthelp(string message)
     {
         _texthelp.text = message.ToString();
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1.0f);
         _texthelp.text = "";
        
     }
@@ -124,15 +125,27 @@ public class GamaManager : MonoBehaviour
     }
     private void DestoryExplanations()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+       if(Input.GetKeyDown(KeyCode.Space))
         {
             foreach (var item in _textExplanations)
             {
                 Destroy(item.gameObject);
             }
             Time.timeScale = 1f;
-            _startGames = true;
+            IsStartGame = true;
         }
-        
+            
+    }
+    private void DestoryExplanationsAdd()
+    {
+        foreach (var item in _textExplanations)
+        {
+            Destroy(item.gameObject);
+        }
+        Time.timeScale = 1f;
+    }
+    private void OnApplicationQuit()
+    {
+        _saverTest.Save();
     }
 }

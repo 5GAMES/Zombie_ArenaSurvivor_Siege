@@ -270,9 +270,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54547b13da636584f90f3bb894ea3872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 176
-  _throwForce: 26
-  _explosionRadius: 1.5
+  _damage: 250
+  _throwForce: 30
+  _explosionRadius: 5
   _explosionForce: 300
   _lifeTime: 0.5
   _particleSystem: {fileID: 3335457282035386444}

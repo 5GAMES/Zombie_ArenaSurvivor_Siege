@@ -8,6 +8,7 @@ public class Shop : MonoBehaviour
     [SerializeField] private Transform _container;
     [SerializeField] private ShopCell _cell;
     [SerializeField] private List<ShopItem> _items;
+    public List<ShopItem> Item { get { return _items; } set { _items = value; } }
     private int _curretnPage = 0;
     private int _drawOnOneScreen = 9;
 

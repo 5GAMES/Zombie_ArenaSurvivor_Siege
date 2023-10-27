@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Mk14
   _image: {fileID: 21300034, guid: 5acb27b603af6d44ea6113c4b7b15385, type: 3}
-  _cost: 1000
+  _cost: 4000
   _isBuyed: 1
   _weapon: {fileID: 8971694010460884120, guid: a19ead3f29b75044a96365aad758b353, type: 3}

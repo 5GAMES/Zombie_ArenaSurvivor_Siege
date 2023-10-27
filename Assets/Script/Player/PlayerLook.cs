@@ -10,7 +10,7 @@ public class PlayerLook : MonoBehaviour
     public Camera _cam;
     [SerializeField] private Slider _sensitivitySlider;
     [SerializeField] float xRotation = 0f;
-    [SerializeField] private float xSensitivity = 20f;
+     public float xSensitivity = 20f;
     [SerializeField] private float ySensitivity = 20f;
     private void Start()
     {

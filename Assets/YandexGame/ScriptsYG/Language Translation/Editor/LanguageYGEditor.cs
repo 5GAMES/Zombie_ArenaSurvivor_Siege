@@ -362,7 +362,7 @@ namespace YG.Insides
             }
         }
 
-#if YG_TEXT_MESH_PRO
+//#if YG_TEXT_MESH_PRO
         void FontTMPSettingsDraw()
         {
             if (scr.infoYG.fontsTMP.defaultFont.Length == 0)
@@ -381,7 +381,7 @@ namespace YG.Insides
                 scr.textMPComponent.font = scr.infoYG.fontsTMP.defaultFont[scr.fontNumber];
             }
         }
-#endif
+//#endif
 
         void TranslateButton()
         {

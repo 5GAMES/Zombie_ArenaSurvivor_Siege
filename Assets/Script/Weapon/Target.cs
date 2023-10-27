@@ -13,7 +13,7 @@ public class Target : MonoBehaviour, IDamageable
     public float MaxHealth => _maxHealth;
 
     [SerializeField]private float _maxHealth = 50;
-    [SerializeField, Range(5,25)] private int _gold = 5;
+    [SerializeField, Range(20,100)] private int _gold = 20;
  
     private float _health;
     private bool _canBeDamaged = true;

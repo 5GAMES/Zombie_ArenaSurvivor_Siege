@@ -20,7 +20,7 @@ public class EnemyFabrick : MonoBehaviour
     [Header("Values : ")]
     [SerializeField, Range(0, 7)] private int _enemyPerSpawn;
     [SerializeField] private int _additionalEnemy;
-    [SerializeField, Range(1, 50)] private int _timeToNextWave;
+    [SerializeField, Range(1, 60)] private int _timeToNextWave;
     private int _wave = 0, _tier = 0;
     [SerializeField]private List<Target> _spawndZombi = new();
 

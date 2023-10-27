@@ -67,7 +67,7 @@ public class Mate : MonoBehaviour
     private IEnumerator WeaponCoroutin()
     {
         _canShooting = true;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         _canShooting = false;
         _weapon.Shoot();
 

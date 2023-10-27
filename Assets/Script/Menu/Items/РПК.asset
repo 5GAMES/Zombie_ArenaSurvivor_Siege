@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38eb8b1c7ae3434caaf259b91fcad68, type: 3}
   m_Name: "\u0420\u041F\u041A"
   m_EditorClassIdentifier: 
-  _name: AK-47
+  _name: "\u041D\u0410\u0413\u0418\u0411\u0410\u0422\u041E\u0420"
   _image: {fileID: 21300044, guid: 5acb27b603af6d44ea6113c4b7b15385, type: 3}
-  _cost: 5000
+  _cost: 12500
   _isBuyed: 1
   _weapon: {fileID: 7489686984377146253, guid: a141fd1e09307be41849af5fb90bbe1c, type: 3}

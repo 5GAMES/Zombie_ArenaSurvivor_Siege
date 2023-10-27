@@ -1,12 +1,15 @@
 using System;
+using UnityEditor;
 using UnityEngine;
+using YG.Example;
 
 public class Wallet : MonoBehaviour
 {
     public Action<int> OnValueChanged;
-    [SerializeField] private int _money;
+    private int _money;
     [SerializeField] private Save _save;
-    public int Money { get { return _money; } }
+    [SerializeField] private SaveLocal _saves;
+    public int Money { get { return _money; } set { _money = value; } }
 
     private void OnDestroy() => _save.Cash = _money;
     private void Start()
@@ -21,6 +24,7 @@ public class Wallet : MonoBehaviour
     {
         _money += value;
         OnValueChanged?.Invoke(_money);
+        _saves.Save();
     }
 
     public void SpendMoney(int value)

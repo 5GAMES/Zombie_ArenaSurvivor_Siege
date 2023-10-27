@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 018796c60eaf1c442b0f3bfb00e91be6, type: 3}
   m_Name: Main Save
   m_EditorClassIdentifier: 
-  Cash: 0
-  KilledZombie: 0
+  Cash: 14983
+  KilledZombie: 782
+  IsDataHelp: 0
