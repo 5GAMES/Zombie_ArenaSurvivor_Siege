@@ -31,7 +31,6 @@ public class SaveLocal : MonoBehaviour
         {
             if (YandexGame.savesData.Weapon.Count == 0) break;
             var weapon = (IShopItem)_shop.Item[i];
-            print(weapon);
             weapon.IsBuyed = YandexGame.savesData.Weapon[i];
             
 
@@ -40,17 +39,21 @@ public class SaveLocal : MonoBehaviour
         _wallet.Money = YandexGame.savesData.Money;
         _playerLook.xSensitivity = YandexGame.savesData.SensitivitySlider;
         _playerLook.UpdateSensitivity(_playerLook.xSensitivity);
+        ZombieCounter.SetMax(YandexGame.savesData.ZombieCoutMax);
         ZombieCounter.SetStat(YandexGame.savesData.ZombieCount);
-        print(YandexGame.savesData.IsStartGame);
+
+        print("Load" + ZombieCounter.ZombieKilled);
+
     }
     public void Load() => YandexGame.LoadLocal();
     public void Save()
     {
         YandexGame.savesData.SensitivitySlider = _playerLook.xSensitivity;
         YandexGame.savesData.Money = _wallet.Money;
+        YandexGame.savesData.ZombieCoutMax = ZombieCounter.ZombieKilledMax;
         YandexGame.savesData.ZombieCount = ZombieCounter.ZombieKilled;
         YandexGame.savesData.IsStartGame = _gameManager.IsFirstGame;
-        print(YandexGame.savesData.IsStartGame);
+        
         var weapon = _shop.Item;
         List<bool> www = new();
         for (int i = 0; i < _shop.Item.Count; i++)
@@ -60,6 +63,7 @@ public class SaveLocal : MonoBehaviour
             
         }
         YandexGame.savesData.Weapon = new List<bool>(www);
+        print("Save" + ZombieCounter.ZombieKilled);
         YandexGame.SaveLocal();
     }
 }

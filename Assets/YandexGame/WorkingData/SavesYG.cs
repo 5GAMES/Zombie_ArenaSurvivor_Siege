@@ -24,6 +24,7 @@ namespace YG
         public float SensitivitySlider = 10f;
         public List <bool> Weapon = new();
         public int IsStartGame;
+        public int ZombieCoutMax;
 
         // Вы можете выполнить какие то действия при загрузке сохранений
         public SavesYG()

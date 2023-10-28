@@ -15,8 +15,6 @@ public class Wallet : MonoBehaviour
     private void OnDestroy() => _save.Cash = _money;
     private IEnumerator Start()
     {
-        ZombieCounter.Saver = _save;
-        ZombieCounter.SetStat(_save.KilledZombie);
         _money = _save.Cash;
         yield return new WaitForSeconds(1f);
         OnValueChanged?.Invoke(_money);
@@ -26,7 +24,6 @@ public class Wallet : MonoBehaviour
     {
         _money += value;
         OnValueChanged?.Invoke(_money);
-        _saves.Save();
     }
 
     public void SpendMoney(int value)

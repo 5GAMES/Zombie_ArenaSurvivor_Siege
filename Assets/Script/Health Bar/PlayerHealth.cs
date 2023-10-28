@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
@@ -15,6 +16,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] private Slider _sliderHP;
     [SerializeField] private TextMeshProUGUI _textHP;
     [SerializeField] private LevelConrtoller _levelConrtoller;
+    [SerializeField] private SaveLocal _save;
     private void Start()
     {
         _textHP.text = _health.ToString();
@@ -32,6 +34,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (_health <= 0)
         {
             _health = 0;
+            ZombieCounter.SetStat(0);
+            print(ZombieCounter.ZombieKilled);
+            _save.Save();
             _levelConrtoller.Ñhoice();
             OnDie?.Invoke();
         }

@@ -16,7 +16,6 @@ public class GamaManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _texthelp;
     [SerializeField] private Menu _menu;
     [SerializeField] private Volume _volume;
-    [SerializeField] private DepthOfField _depthOfField;
     [SerializeField] private TextMeshProUGUI [] _textExplanations;
     [Header("ADD")]
     [SerializeField] private Slider _sliderFullScreen;
@@ -42,15 +41,10 @@ public class GamaManager : MonoBehaviour
     private void OnApplicationQuit() => _saverTest.Save();
     private IEnumerator Start()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.15f);
         _sliderFullScreen.minValue = 0f;
         _sliderFullScreen.maxValue = _timer;
         _sliderFullScreen.value = 0f;
-        if (!_volume.profile.TryGet(out _depthOfField))
-        {
-            Debug.LogError("Depth of Field is not set up in the Volume");
-        }
-        print(IsFirstGame);
         if (IsFirstGame == 2)
         {
             DestoryExplanationsAdd();
@@ -66,11 +60,6 @@ public class GamaManager : MonoBehaviour
     {
         AddSdk();
         DestoryExplanations();
-    }
-    public void Boken()
-    {
-        if (!_depthOfField.active) _depthOfField.active = true;
-        else _depthOfField.active = false;
     }
     public void AddSdk()
     {
@@ -124,7 +113,7 @@ public class GamaManager : MonoBehaviour
     {
         foreach (var item in _textExplanations)
         {
-            print(item.name);
+            
             if (item.gameObject != null) Destroy(item.gameObject);      
         }
         Time.timeScale = 1f;
