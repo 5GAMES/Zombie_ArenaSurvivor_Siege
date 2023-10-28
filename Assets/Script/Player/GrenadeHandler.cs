@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -26,7 +27,7 @@ public class GrenadeHandler : MonoBehaviour
         {
             if(_genadeCout > 0)
             {
-                Throw();
+                StartCoroutine(Throw());
             }
             else
             {
@@ -35,15 +36,15 @@ public class GrenadeHandler : MonoBehaviour
         }
     }
 
-    private async void Throw()
+    private IEnumerator Throw()
     {
-        if (_onCooldown) return;
+        if (_onCooldown)
         _genadeCout--;
         _textCoutGrenade.text = _genadeCout.ToString();
         _onCooldown = true;
         Grenade grenade = Instantiate(grenadePrefab, _grenadeThrowPoint.transform.position, Quaternion.identity);
         grenade.Throw(transform.forward);
-        await Task.Delay(5000);
+        yield return new WaitForSeconds(0.2f);
         _onCooldown = false;
        
     }

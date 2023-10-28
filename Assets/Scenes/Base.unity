@@ -9195,7 +9195,6 @@ MonoBehaviour:
   _texthelp: {fileID: 429155386}
   _menu: {fileID: 575563863}
   _volume: {fileID: 1699123961}
-  _depthOfField: {fileID: 0}
   _textExplanations:
   - {fileID: 238325235}
   - {fileID: 1595851213}
@@ -84013,7 +84012,7 @@ MonoBehaviour:
   grenadePrefab: {fileID: 4582781727152491852, guid: 54a1f7377c3522b4eb0d3c2c037dada8,
     type: 3}
   _grenadeThrowPoint: {fileID: 106980195}
-  _genadeCout: 5
+  _genadeCout: 1
   _maxGrenade: 5
   _textCoutGrenade: {fileID: 1416390770}
   _gamaManager: {fileID: 211896911}
