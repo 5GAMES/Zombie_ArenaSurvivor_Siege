@@ -38,13 +38,14 @@ public class GrenadeHandler : MonoBehaviour
 
     private IEnumerator Throw()
     {
-        if (_onCooldown)
+        if (_onCooldown) yield break;
         _genadeCout--;
+        print(_genadeCout);
         _textCoutGrenade.text = _genadeCout.ToString();
         _onCooldown = true;
         Grenade grenade = Instantiate(grenadePrefab, _grenadeThrowPoint.transform.position, Quaternion.identity);
         grenade.Throw(transform.forward);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(1f);
         _onCooldown = false;
        
     }

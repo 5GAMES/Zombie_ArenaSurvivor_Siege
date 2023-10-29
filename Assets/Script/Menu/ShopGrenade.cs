@@ -3,16 +3,19 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Items/Grenade")]
 public class ShopGrenade : ShopItem
 {
-    public override void OnBuy()
-    {
-        var handler = PlayerMotor.Singleton.GetComponent<GrenadeHandler>();
-        
-    }
+    private GrenadeHandler handler;
+
+    public override void OnBuy() =>
+            CheckAllBuyed();
 
     public void CheckAllBuyed()
     {
-        var handler = PlayerMotor.Singleton.GetComponent<GrenadeHandler>();
-        if (handler.CurrentGrenadeCount < handler.MaxGrenadeCount) _isBuyed = false;
-        
+        handler = PlayerMotor.Singleton.GetComponent<GrenadeHandler>();
+        if (handler.CurrentGrenadeCount < handler.MaxGrenadeCount)
+        {
+            _isBuyed = false;
+            handler.AddGrenade();
+        }
+        else _isBuyed = true;
     }
 }

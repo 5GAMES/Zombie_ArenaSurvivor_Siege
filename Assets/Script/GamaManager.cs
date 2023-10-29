@@ -113,8 +113,7 @@ public class GamaManager : MonoBehaviour
     {
         foreach (var item in _textExplanations)
         {
-            
-            if (item.gameObject != null) Destroy(item.gameObject);      
+            if (item?.gameObject != null) Destroy(item?.gameObject);      
         }
         Time.timeScale = 1f;
     }   
