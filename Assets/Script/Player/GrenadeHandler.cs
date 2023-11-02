@@ -27,12 +27,14 @@ public class GrenadeHandler : MonoBehaviour
         {
             if(_genadeCout > 0)
             {
+                
                 StartCoroutine(Throw());
             }
             else
             {
-                StartCoroutine(_gamaManager.Texthelp("Гранаты закончились"));
+               StartCoroutine(OverGrenade());
             }
+            
         }
     }
 
@@ -47,7 +49,14 @@ public class GrenadeHandler : MonoBehaviour
         grenade.Throw(transform.forward);
         yield return new WaitForSeconds(1f);
         _onCooldown = false;
+        
        
+    }
+    private IEnumerator OverGrenade()
+    {
+        _gamaManager.Texthelp("Гранаты закончились");
+        yield return new WaitForSeconds(1f);
+        _gamaManager.Texthelp("");
     }
     public int AddGrenade()
     {

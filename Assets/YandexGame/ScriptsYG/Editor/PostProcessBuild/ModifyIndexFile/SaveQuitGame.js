@@ -1,4 +1,4 @@
 window.addEventListener('beforeunload', (event) => {
 	if(myGameInstance != null) 
-		myGameInstance.SendMessage('YandexGame', 'SaveProgress'); 
+		myGameInstance.SendMessage('YandexGame', '_SaveProgress'); 
 	});

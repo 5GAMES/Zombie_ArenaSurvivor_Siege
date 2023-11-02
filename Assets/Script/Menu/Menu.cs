@@ -4,7 +4,7 @@ public class Menu : MonoBehaviour
 {
     [SerializeField] private Canvas _menu;
     [SerializeField] private GamaManager _gamaManager;
-    [SerializeField] private GameObject _shop;
+    [SerializeField] private Canvas _shop;
     private bool _isMenuActive = false;
     private void Update()
     {
@@ -22,14 +22,13 @@ public class Menu : MonoBehaviour
         {
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
-           // _gamaManager.Boken();
+            
         }
         else
         {
             Time.timeScale = 1;
-            _shop.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
-           // _gamaManager.Boken();
+            _shop.enabled = false;
         }
     }
 }

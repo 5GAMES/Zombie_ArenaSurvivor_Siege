@@ -83,7 +83,7 @@ public class Weapon : MonoBehaviour
             }
             if (_magazine <= 0)
             {
-                StartCoroutine(_gamaManager.Texthelp("Нажми К для перезарядки"));
+                _gamaManager.Texthelp("Нажми К для перезарядки");
             }
         }
         else
@@ -92,7 +92,7 @@ public class Weapon : MonoBehaviour
             {
                 if (_magazine <= 0)
                 {
-                    StartCoroutine(_gamaManager.Texthelp("Нажми К для перезарядки"));
+                    _gamaManager.Texthelp("Нажми К для перезарядки");
                 }
                 else
                 {
@@ -186,6 +186,7 @@ public class Weapon : MonoBehaviour
 
     private void OnRecharge()
     {
+        _gamaManager.Texthelp("");
         _IsRecharge = false;
         _anim.SetBool("Recharge", false);
     }

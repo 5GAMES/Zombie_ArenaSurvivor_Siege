@@ -82,11 +82,9 @@ public class GamaManager : MonoBehaviour
             }
         }
     }
-    public IEnumerator Texthelp(string message)
+    public void Texthelp(string message)
     {
         _texthelp.text = message.ToString();
-        yield return new WaitForSeconds(1.0f);
-        _texthelp.text = "";
        
     }
     private IEnumerator AdFullScreen()

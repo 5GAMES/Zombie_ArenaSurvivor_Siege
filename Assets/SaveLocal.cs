@@ -11,7 +11,7 @@ public class SaveLocal : MonoBehaviour
     [SerializeField] private Shop _shop;
     private void OnEnable() => YandexGame.GetDataEvent += GetLoad;
 
-    private void OnDisable() => YandexGame.GetDataEvent += GetLoad;
+    private void OnDisable() => YandexGame.GetDataEvent -= GetLoad;
 
     private IEnumerator Start()
     {
@@ -42,8 +42,6 @@ public class SaveLocal : MonoBehaviour
         ZombieCounter.SetMax(YandexGame.savesData.ZombieCoutMax);
         ZombieCounter.SetStat(YandexGame.savesData.ZombieCount);
 
-        print("Load" + ZombieCounter.ZombieKilled);
-
     }
     public void Load() => YandexGame.LoadLocal();
     public void Save()
@@ -63,7 +61,6 @@ public class SaveLocal : MonoBehaviour
             
         }
         YandexGame.savesData.Weapon = new List<bool>(www);
-        print("Save" + ZombieCounter.ZombieKilled);
         YandexGame.SaveLocal();
     }
 }
