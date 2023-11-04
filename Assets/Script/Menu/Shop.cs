@@ -12,8 +12,11 @@ public class Shop : MonoBehaviour
     private int _curretnPage = 0;
     private int _drawOnOneScreen = 9;
 
-    private void Start() => PlayerMotor.Singleton.GetComponent<PlayerHealth>().OnDie += OnDie;
+    private void Start()
+    {
+        PlayerMotor.Singleton.GetComponent<PlayerHealth>().OnDie += OnDie;
 
+    }
     private void OnEnable()
     {
         Render();

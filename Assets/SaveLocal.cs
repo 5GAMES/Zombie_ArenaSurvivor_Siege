@@ -9,6 +9,7 @@ public class SaveLocal : MonoBehaviour
     [SerializeField] private Wallet _wallet;
     [SerializeField] private PlayerLook _playerLook;
     [SerializeField] private Shop _shop;
+    [SerializeField] private ShopCell _cell;
     private void OnEnable() => YandexGame.GetDataEvent += GetLoad;
 
     private void OnDisable() => YandexGame.GetDataEvent -= GetLoad;
@@ -32,8 +33,6 @@ public class SaveLocal : MonoBehaviour
             if (YandexGame.savesData.Weapon.Count == 0) break;
             var weapon = (IShopItem)_shop.Item[i];
             weapon.IsBuyed = YandexGame.savesData.Weapon[i];
-            
-
         }
         _gameManager.IsFirstGame = YandexGame.savesData.IsStartGame;
         _wallet.Money = YandexGame.savesData.Money;
