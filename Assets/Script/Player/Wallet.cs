@@ -12,16 +12,7 @@ public class Wallet : MonoBehaviour
     [SerializeField] private Save _save;
     [SerializeField] private SaveLocal _saves;
     public int Money { get { return _money; } set { _money = value; } }
-
     private void OnDestroy() => _save.Cash = _money;
-
-    private void Update()
-    {
-        if(Input.GetKeyUp(KeyCode.Escape))
-        {
-            AddMoney(10000);
-        }
-    }
     private IEnumerator Start()
     {
         _money = _save.Cash;
@@ -34,8 +25,8 @@ public class Wallet : MonoBehaviour
         _money += value;
         OnValueChanged?.Invoke(_money);
         _saves.Save();
+        
     }
-
     public void SpendMoney(int value)
     {
         if (_money - value < 0) return;

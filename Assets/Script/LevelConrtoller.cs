@@ -9,10 +9,6 @@ public class LevelConrtoller : MonoBehaviour
     [SerializeField] private Canvas _defeats;
     [SerializeField] private GameObject _defeatss;
     [SerializeField] PlayerHealth _playerHealth;
-    private void Start()
-    {
-       
-    }
     public void RestartLevel()
     {
         for (int i = 0; i < YandexGame.savesData.Weapon.Count; i++)

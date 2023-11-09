@@ -2,20 +2,17 @@ using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 using System;
-using System.Collections;
 
 public class ShopCell : MonoBehaviour
 {
     public Action OnBuy;
     [SerializeField] private TextMeshProUGUI _name, _cost;
     [SerializeField] private Image _icon;
+    private GamaManager _gameManager;
     private IShopItem _item;
-    private bool _selected = true;
-    private IEnumerator Start()
+    private void Start()
     {
-        yield return new WaitForSeconds(0.5f);
-        _selected = CheckBool();
-       
+        _gameManager = FindObjectOfType<GamaManager>();
     }
     public void Render(IShopItem item)
     {
@@ -37,29 +34,20 @@ public class ShopCell : MonoBehaviour
       
            
     }
-    public bool CheckBool()
-    { 
-        if (true)
-        {
-            OnBuy?.Invoke();
-            Debug.Log("Â");
-            return false;
-        }
-       
-    }
     public void Buy()
     {
         if (_item.IsBuyed)
         {
             _item.OnBuy();
-            OnBuy?.Invoke();
             return;
         }
         var wallet = PlayerMotor.Singleton.GetComponent<Wallet>();
         if (wallet.Money < _item.Cost) return;
         wallet.SpendMoney(_item.Cost);
         _item.OnBuy();
+        _gameManager.SaveLocalBuy();
         OnBuy?.Invoke();
+        
     }
-    
+
 }

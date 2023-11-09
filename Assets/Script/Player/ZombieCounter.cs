@@ -21,6 +21,7 @@ public static class ZombieCounter
         }
         OnValueChanged?.Invoke(ZombieKilled);
         //Saver.KilledZombie = ZombieKilled;
+        
     }
     public static void SetStat(int value)
     {

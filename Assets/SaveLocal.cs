@@ -34,7 +34,7 @@ public class SaveLocal : MonoBehaviour
             var weapon = (IShopItem)_shop.Item[i];
             weapon.IsBuyed = YandexGame.savesData.Weapon[i];
         }
-        _gameManager.IsFirstGame = YandexGame.savesData.IsStartGame;
+       // _gameManager.IsFirstGame = YandexGame.savesData.IsStartGame;
         _wallet.Money = YandexGame.savesData.Money;
         _playerLook.xSensitivity = YandexGame.savesData.SensitivitySlider;
         _playerLook.UpdateSensitivity(_playerLook.xSensitivity);
@@ -49,8 +49,7 @@ public class SaveLocal : MonoBehaviour
         YandexGame.savesData.Money = _wallet.Money;
         YandexGame.savesData.ZombieCoutMax = ZombieCounter.ZombieKilledMax;
         YandexGame.savesData.ZombieCount = ZombieCounter.ZombieKilled;
-        YandexGame.savesData.IsStartGame = _gameManager.IsFirstGame;
-        
+        //YandexGame.savesData.IsStartGame = _gameManager.IsFirstGame;
         var weapon = _shop.Item;
         List<bool> www = new();
         for (int i = 0; i < _shop.Item.Count; i++)

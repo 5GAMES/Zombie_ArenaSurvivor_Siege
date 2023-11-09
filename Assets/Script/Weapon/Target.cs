@@ -36,8 +36,8 @@ public class Target : MonoBehaviour, IDamageable
             OnDiee?.Invoke(this);
             if (PlayerMotor.Singleton != null)
             {
-                PlayerMotor.Singleton.GetComponent<Wallet>().AddMoney(_gold);
                 ZombieCounter.UpdateStat();
+                PlayerMotor.Singleton.GetComponent<Wallet>().AddMoney(_gold);
                 NightPool.Despawn(this.gameObject, 2f);
             }
         }

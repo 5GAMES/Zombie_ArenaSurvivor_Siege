@@ -15,13 +15,9 @@ public class Shop : MonoBehaviour
     private void Start()
     {
         PlayerMotor.Singleton.GetComponent<PlayerHealth>().OnDie += OnDie;
-
+        Invoke("Render", 0.6f);
     }
-    private void OnEnable()
-    {
-        Render();
-    }
-
+    
     private void Render()
     {
         foreach(Transform child in _container) Destroy(child.gameObject);
