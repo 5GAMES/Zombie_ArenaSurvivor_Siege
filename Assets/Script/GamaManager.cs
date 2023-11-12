@@ -16,10 +16,12 @@ public class GamaManager : MonoBehaviour
     [Header("ADD")]
     [SerializeField] private Slider _sliderFullScreen;
     [SerializeField] private YandexGame _sdk;
+    [SerializeField] private GameObject _estimate;
     private float _timer = 10f;
     [SerializeField] bool _IsAdplay;
     [SerializeField] private TextMeshProUGUI _textad;
     [SerializeField] private GameObject _fullsceenAd;
+    [SerializeField] private Wallet _wallet;
 
     [Header("Authentication")]
     [SerializeField] private GameObject _authentication;
@@ -30,12 +32,31 @@ public class GamaManager : MonoBehaviour
    // public int IsFirstGame;
 
     public void ResumeGames() => _menu.PauseGames();
-    public void AddMoneySdk() => _sdk._RewardedShow(1);
-    public void AddMoneySdk2() => _sdk._RewardedShow(2);
+    public void AddMoneySdk0()
+    {
+        _sdk._RewardedShow(0);
+        ResumeGames();
+        //StartCoroutine(S());
+    }
+    public void AddMoneySdk1() => _sdk._RewardedShow(1);
+    public void AddMoneySdk2()
+    {
+        _sdk._RewardedShow(2);
+        //StartCoroutine(S());
+    }
+    private IEnumerator S()
+    {
+        yield return new WaitForSeconds(0.4f);
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     public void FullcreenShow() => _sdk._FullscreenShow();
     public void NoAuthentication() => StartCoroutine(NoAuthenticationCoroutine());
     public void SaveLocalBuy() => _saverTest.Save();
+    public void ActiveEstimate() => _estimate.SetActive(true);
     private void OnApplicationQuit() => _saverTest.Save();
+    private void OnEnable() => YandexGame.RewardVideoEvent += Rewarded;
+    private void OnDisable() => YandexGame.RewardVideoEvent -= Rewarded;
+    public void ExampleOpenRewardAd(int id) => YandexGame.RewVideoShow(id);
     private IEnumerator Start()
     {
         yield return new WaitForSeconds(0.15f);
@@ -56,7 +77,16 @@ public class GamaManager : MonoBehaviour
     private void Update()
     {
         AddSdk();
-       //DestoryExplanations();
+        //DestoryExplanations();
+    }
+    private void Rewarded(int id)
+    {
+        if (id == 0)
+            _wallet.AddMoney(400);
+        else if (id == 1)
+            _wallet.AddMoney(50);
+        else if (id == 2)
+            _wallet.AddMoney(0);
     }
     public void AddSdk()
     {
@@ -96,6 +126,7 @@ public class GamaManager : MonoBehaviour
         yield return new WaitForSeconds(3);
         _authentication.SetActive(false);
     }
+    
     //private void DestoryExplanations()
     //{
     //   if(Input.GetKeyDown(KeyCode.U) && IsFirstGame == 0)

@@ -1,2 +1,2 @@
-Build path: D:/Unity_Games/Unity/Project/YandexBuild
-Build number: 135
+Build path: F:/Unity_Games/ZBuild_Games/NextDayZombiePolygon/0.43
+Build number: 141

@@ -35,7 +35,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         {
             _health = 0;
             ZombieCounter.SetStat(0);
-            print(ZombieCounter.ZombieKilled);
             _save.Save();
             _levelConrtoller.Ñhoice();
             OnDie?.Invoke();
@@ -46,6 +45,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public void TakeHeal(float value)
     {
         if(_health + value <= _maxHealth)_health += value;
+        _textHP.text = _health.ToString();
+        _sliderHP.value = _health;
         OnValeChanged?.Invoke(_health);
     }
 }

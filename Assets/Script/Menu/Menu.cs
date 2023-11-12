@@ -22,6 +22,7 @@ public class Menu : MonoBehaviour
         {
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             
         }
         else
@@ -29,6 +30,7 @@ public class Menu : MonoBehaviour
             Time.timeScale = 1;
             Cursor.lockState = CursorLockMode.Locked;
             _shop.enabled = false;
+            Cursor.visible = false;
         }
     }
 }

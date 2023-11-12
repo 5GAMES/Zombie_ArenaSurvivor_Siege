@@ -13,6 +13,7 @@ public class Wallet : MonoBehaviour
     [SerializeField] private SaveLocal _saves;
     public int Money { get { return _money; } set { _money = value; } }
     private void OnDestroy() => _save.Cash = _money;
+
     private IEnumerator Start()
     {
         _money = _save.Cash;
@@ -33,4 +34,5 @@ public class Wallet : MonoBehaviour
         _money -= value;
         OnValueChanged?.Invoke(_money);
     }
+
 }
