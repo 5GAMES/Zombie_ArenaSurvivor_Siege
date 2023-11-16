@@ -24,10 +24,6 @@ public class LevelConrtoller : MonoBehaviour
     public void ResumeLevelAdd()
     {
         _gamaManager.AddMoneySdk2();
-        Time.timeScale = 1;
-        _defeats.enabled = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
         _playerHealth.TakeHeal(100);
         
     }

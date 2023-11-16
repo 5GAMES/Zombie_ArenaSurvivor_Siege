@@ -44,11 +44,6 @@ public class GamaManager : MonoBehaviour
         _sdk._RewardedShow(2);
         //StartCoroutine(S());
     }
-    private IEnumerator S()
-    {
-        yield return new WaitForSeconds(0.4f);
-        Cursor.lockState = CursorLockMode.Locked;
-    }
     public void FullcreenShow() => _sdk._FullscreenShow();
     public void NoAuthentication() => StartCoroutine(NoAuthenticationCoroutine());
     public void SaveLocalBuy() => _saverTest.Save();
@@ -84,7 +79,7 @@ public class GamaManager : MonoBehaviour
         if (id == 0)
             _wallet.AddMoney(400);
         else if (id == 1)
-            _wallet.AddMoney(50);
+            _wallet.AddMoney(0);
         else if (id == 2)
             _wallet.AddMoney(0);
     }

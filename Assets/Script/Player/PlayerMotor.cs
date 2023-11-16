@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerMotor : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerMotor : MonoBehaviour
     private float _previousXPosition;
     private float _previousZPosition;
     public static PlayerMotor Singleton { get; private set; }
+    [SerializeField] private Menu _menu;
 
     private void Awake() => Singleton = this;
     private void Start()
@@ -82,9 +84,12 @@ public class PlayerMotor : MonoBehaviour
     }
 
     public void Jump()
-    {
-        if (_controller.isGrounded) 
-            _playerVelocity.y = Mathf.Sqrt(_jumpHeight * -3.0f * _gravity); 
+    {   //if(!_menu.IsActivAD)
+        //{
+            if (_controller.isGrounded)
+                _playerVelocity.y = Mathf.Sqrt(_jumpHeight * -3.0f * _gravity);
+       //}
+        
     }
 
     public void Crouch()

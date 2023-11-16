@@ -4,8 +4,4 @@ using UnityEngine;
 
 public class gun : MonoBehaviour
 {
-    private void Update()
-    {
-        
-    }
 }
